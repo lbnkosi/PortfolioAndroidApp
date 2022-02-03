@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="marginPadding_2">2dp</dimen>
+    <dimen name="marginPadding_4">4dp</dimen>
+    <dimen name="marginPadding_6">6dp</dimen>
+    <dimen name="marginPadding_8">8dp</dimen>
+    <dimen name="marginPadding_10">10dp</dimen>
+    <dimen name="marginPadding_12">12dp</dimen>
+    <dimen name="marginPadding_14">14dp</dimen>
+    <dimen name="marginPadding_16">16dp</dimen>
+    <dimen name="marginPadding_18">18dp</dimen>
+    <dimen name="marginPadding_20">20dp</dimen>
+    <dimen name="marginPadding_22">22dp</dimen>
+    <dimen name="marginPadding_24">24dp</dimen>
+    <dimen name="marginPadding_26">26dp</dimen>
+    <dimen name="marginPadding_28">28dp</dimen>
+    <dimen name="marginPadding_30">30dp</dimen>
+    <dimen name="marginPadding_32">32dp</dimen>
+
+    <dimen name="textSize_2">2sp</dimen>
+    <dimen name="textSize_4">4sp</dimen>
+    <dimen name="textSize_6">6sp</dimen>
+    <dimen name="textSize_8">8sp</dimen>
+    <dimen name="textSize_10">10sp</dimen>
+    <dimen name="textSize_12">12sp</dimen>
+    <dimen name="textSize_14">14sp</dimen>
+    <dimen name="textSize_16">16sp</dimen>
+    <dimen name="textSize_18">18sp</dimen>
+    <dimen name="textSize_20">20sp</dimen>
+    <dimen name="textSize_22">22sp</dimen>
+    <dimen name="textSize_24">24sp</dimen>
+    <dimen name="textSize_26">26sp</dimen>
+    <dimen name="textSize_28">28sp</dimen>
+    <dimen name="textSize_30">30sp</dimen>
+    <dimen name="textSize_32">32sp</dimen>
+
+
+    <fraction name="constraintPercentage_1">0.1</fraction>
+
+</resources>

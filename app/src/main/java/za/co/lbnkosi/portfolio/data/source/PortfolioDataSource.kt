@@ -14,7 +14,7 @@ class PortfolioDataSource @Inject constructor(private val apiService: PortfolioA
         return if (response.isSuccessful) {
             flow { emit(Resource.success(response.body())) }
         } else {
-            flow { emit(Resource.error("Error", null)) }
+            flow { emit(Resource.error(Pair(response.message(), response.errorBody()), null)) }
         }
     }
 
@@ -23,7 +23,7 @@ class PortfolioDataSource @Inject constructor(private val apiService: PortfolioA
         return if (response.isSuccessful) {
             flow { emit(Resource.success(response.body())) }
         } else {
-            flow { emit(Resource.error("Error", null)) }
+            flow { emit(Resource.error(Pair(response.message(), response.errorBody()), null)) }
         }
     }
 
@@ -32,7 +32,7 @@ class PortfolioDataSource @Inject constructor(private val apiService: PortfolioA
         return if (response.isSuccessful) {
             flow { emit(Resource.success(response.body())) }
         } else {
-            flow { emit(Resource.error("Error", null)) }
+            flow { emit(Resource.error(Pair(response.message(), response.errorBody()), null)) }
         }
     }
 
@@ -41,7 +41,7 @@ class PortfolioDataSource @Inject constructor(private val apiService: PortfolioA
         return if (response.isSuccessful) {
             flow { emit(Resource.success(response.body())) }
         } else {
-            flow { emit(Resource.error("Error", null)) }
+            flow { emit(Resource.error(Pair(response.message(), response.errorBody()), null)) }
         }
     }
 
@@ -50,7 +50,7 @@ class PortfolioDataSource @Inject constructor(private val apiService: PortfolioA
         return if (response.isSuccessful) {
             flow { emit(Resource.success(response.body())) }
         } else {
-            flow { emit(Resource.error("Error", null)) }
+            flow { emit(Resource.error(Pair(response.message(), response.errorBody()), null)) }
         }
     }
 
@@ -59,7 +59,7 @@ class PortfolioDataSource @Inject constructor(private val apiService: PortfolioA
         return if (response.isSuccessful) {
             flow { emit(Resource.success(response.body())) }
         } else {
-            flow { emit(Resource.error("Error", null)) }
+            flow { emit(Resource.error(Pair(response.message(), response.errorBody()), null)) }
         }
     }
 
@@ -68,7 +68,7 @@ class PortfolioDataSource @Inject constructor(private val apiService: PortfolioA
         return if (response.isSuccessful) {
             flow { emit(Resource.success(response.body())) }
         } else {
-            flow { emit(Resource.error("Error", null)) }
+            flow { emit(Resource.error(Pair(response.message(), response.errorBody()), null)) }
         }
     }
 
@@ -77,16 +77,18 @@ class PortfolioDataSource @Inject constructor(private val apiService: PortfolioA
         return if (response.isSuccessful) {
             flow { emit(Resource.success(response.body())) }
         } else {
-            flow { emit(Resource.error("Error", null)) }
+            flow { emit(Resource.error(Pair(response.message(), response.errorBody()), null)) }
         }
     }
 
     suspend fun fetchSkills(key: String, uid: String): Flow<Resource<ArrayList<Skill>>> {
         val response = apiService.fetchSkills(key, uid).awaitResponse()
+        val (a, b) = Pair("", "x")
+
         return if (response.isSuccessful) {
             flow { emit(Resource.success(response.body())) }
         } else {
-            flow { emit(Resource.error("Error", null)) }
+            flow { emit(Resource.error(Pair(response.message(), response.errorBody()), null)) }
         }
     }
 
@@ -95,7 +97,7 @@ class PortfolioDataSource @Inject constructor(private val apiService: PortfolioA
         return if (response.isSuccessful) {
             flow { emit(Resource.success(response.body())) }
         } else {
-            flow { emit(Resource.error("Error", null)) }
+            flow { emit(Resource.error(Pair(response.message(), response.errorBody()), null)) }
         }
     }
 
@@ -104,7 +106,7 @@ class PortfolioDataSource @Inject constructor(private val apiService: PortfolioA
         return if (response.isSuccessful) {
             flow { emit(Resource.success(response.body())) }
         } else {
-            flow { emit(Resource.error("Error", null)) }
+            flow { emit(Resource.error(Pair(response.message(), response.errorBody()), null)) }
         }
     }
 

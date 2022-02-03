@@ -1,0 +1,63 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/expImageView"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="@dimen/marginPadding_32"
+            android:layout_marginTop="@dimen/marginPadding_14"
+            android:layout_marginBottom="@dimen/marginPadding_14"
+            android:src="@drawable/subject"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/callImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/marginPadding_32"
+            android:src="@drawable/ic_baseline_email_24"
+            app:layout_constraintEnd_toStartOf="@id/emailImageView"
+            app:layout_constraintTop_toTopOf="@id/expImageView"
+            app:layout_constraintBottom_toBottomOf="@id/expImageView"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/emailImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginPadding_32"
+            android:layout_marginEnd="@dimen/marginPadding_32"
+            android:src="@drawable/ic_baseline_call_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/expImageView"
+            app:layout_constraintBottom_toBottomOf="@id/expImageView"
+            app:tint="@color/white" />
+
+        <ProgressBar
+            android:id="@+id/pbProcessing"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:progressTint="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/expImageView"
+            android:indeterminateOnly="true"/>
+
+        <View
+            android:id="@+id/appBarDiv"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:alpha="0.15"
+            app:layout_constraintTop_toBottomOf="@id/expImageView"
+            android:layout_marginTop="8dp"
+            android:background="@color/white" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

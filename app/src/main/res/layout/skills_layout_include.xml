@@ -1,0 +1,54 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/androidlogo"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/circle_shape"
+            android:src="@drawable/android_logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/kotlinlogo"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/circle_shape"
+            android:src="@drawable/kotlin_logo"
+            android:padding="10dp"
+            android:layout_marginStart="@dimen/marginPadding_12"
+            app:layout_constraintStart_toEndOf="@id/androidlogo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/firebaselogo"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="5dp"
+            android:layout_marginStart="@dimen/marginPadding_12"
+            android:background="@drawable/circle_shape"
+            android:src="@drawable/firebase"
+            app:layout_constraintStart_toEndOf="@id/kotlinlogo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/firebaselogo"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="@dimen/textSize_10"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:fontFamily="@font/montserrat_regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="@dimen/marginPadding_16"
+            android:text="+ View more"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
