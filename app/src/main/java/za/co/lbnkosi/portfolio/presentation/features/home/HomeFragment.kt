@@ -29,7 +29,6 @@ class HomeFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         viewModel.portfolio.observe(viewLifecycleOwner) {
             binding.customAppbar.pbProcessing.isVisible = false
             binding.portfolio = it

@@ -9,6 +9,7 @@
         <entry key="app/src/main/res/drawable/bottom_sheet_round_top_solid_white.xml" value="0.44074074074074077" />
         <entry key="app/src/main/res/drawable/circle_shape.xml" value="0.4305555555555556" />
         <entry key="app/src/main/res/drawable/home_gradient.xml" value="0.23" />
+        <entry key="app/src/main/res/drawable/opaque_button.xml" value="0.1585" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/bottom_sheet_dialog_custom_view.xml" value="0.49583333333333335" />

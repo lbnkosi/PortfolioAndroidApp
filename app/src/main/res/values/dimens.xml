@@ -17,6 +17,7 @@
     <dimen name="marginPadding_28">28dp</dimen>
     <dimen name="marginPadding_30">30dp</dimen>
     <dimen name="marginPadding_32">32dp</dimen>
+    <dimen name="marginPadding_40">40dp</dimen>
 
     <dimen name="textSize_2">2sp</dimen>
     <dimen name="textSize_4">4sp</dimen>
