@@ -15,6 +15,12 @@ class PortfolioRepository @Inject constructor(private val dataSource: PortfolioD
         }
     }
 
+    override suspend fun getPortfolioFromCache(): Flow<Resource<Portfolio>> {
+        return dataSource.fetchPortfolioFromCache().map { resource ->
+            resource
+        }
+    }
+
     override suspend fun fetchAddress(key: String, uid: String): Flow<Resource<ArrayList<Address>>> {
         return dataSource.fetchAddress(key, uid).map { resource ->
             resource

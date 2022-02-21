@@ -2,169 +2,73 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-        <variable
-            name="portfolio"
-            type="za.co.lbnkosi.portfolio.domain.model.Portfolio" />
-    </data>
-
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipeToRefresh"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeToRefresh"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
+            <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/subject" />
+                android:fillViewport="true">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <include
-                    android:id="@+id/customAppbar"
-                    layout="@layout/custom_appbar_layout_include"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_height="match_parent"
+                    android:background="?attr/colorOnBackground">
 
-                <androidx.core.widget.NestedScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:fillViewport="true"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/customAppbar">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <include
+                        android:id="@+id/headerInclude"
+                        layout="@layout/profile_header_include"
                         android:layout_width="match_parent"
-                        android:layout_height="0dp">
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                        <TextView
-                            android:id="@+id/nameTextView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/marginPadding_32"
-                            android:layout_marginTop="@dimen/marginPadding_16"
-                            android:layout_marginBottom="@dimen/marginPadding_8"
-                            android:fontFamily="@font/sharp_sans"
-                            android:text="@{portfolio.user.name + ` ` + portfolio.user.surname}"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/textSize_30"
-                            app:layout_constraintBottom_toTopOf="@id/descriptionTextView"
-                            app:layout_constraintStart_toStartOf="parent"
-                            tools:text="Leboang Nkosi" />
+                    <androidx.fragment.app.FragmentContainerView
+                        android:id="@+id/featuredFragment"
+                        android:name="za.co.lbnkosi.portfolio.presentation.features.featured.FeaturedFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/marginPadding_16"
+                        app:layout_constraintTop_toBottomOf="@id/headerInclude"
+                        tools:layout="@layout/fragment_featured" />
 
-                        <TextView
-                            android:id="@+id/descriptionTextView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/marginPadding_8"
-                            android:layout_marginBottom="@dimen/marginPadding_16"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:text="@{portfolio.user.title}"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/textSize_12"
-                            app:layout_constraintBottom_toTopOf="@id/skillsLayout"
-                            app:layout_constraintStart_toStartOf="@id/nameTextView"
-                            tools:text="Android Developer" />
+                    <androidx.fragment.app.FragmentContainerView
+                        android:id="@+id/workFragment"
+                        android:name="za.co.lbnkosi.portfolio.presentation.features.experience.ExperienceFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/marginPadding_16"
+                        app:layout_constraintTop_toBottomOf="@id/featuredFragment"
+                        tools:layout="@layout/fragment_work" />
 
-                        <include
-                            android:id="@+id/skillsLayout"
-                            layout="@layout/skills_layout_include"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/marginPadding_32"
-                            android:layout_marginTop="@dimen/marginPadding_14"
-                            android:layout_marginEnd="@dimen/marginPadding_32"
-                            android:layout_marginBottom="@dimen/marginPadding_16"
-                            app:layout_constraintBottom_toTopOf="@id/cardView" />
+                    <androidx.fragment.app.FragmentContainerView
+                        android:id="@+id/educationFragment"
+                        android:name="za.co.lbnkosi.portfolio.presentation.features.education.EducationFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/marginPadding_16"
+                        app:layout_constraintTop_toBottomOf="@id/workFragment"
+                        tools:layout="@layout/fragment_education" />
 
-                        <!--<include
-                            android:id="@+id/experienceView"
-                            layout="@layout/experience_card_view_layout_include"
-                            android:layout_width="match_parent"
-                            android:layout_height="80dp"
-                            android:layout_marginStart="@dimen/marginPadding_32"
-                            android:layout_marginTop="@dimen/marginPadding_16"
-                            android:layout_marginEnd="@dimen/marginPadding_32"
-                            app:layout_constraintTop_toBottomOf="@id/skillsLayout" />-->
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/cardView"
-                            android:layout_width="match_parent"
-                            android:layout_height="200dp"
-                            android:layout_marginBottom="-20dp"
-                            app:cardBackgroundColor="@color/black"
-                            app:cardCornerRadius="@dimen/marginPadding_32"
-                            app:layout_constraintBottom_toBottomOf="parent">
+            </androidx.core.widget.NestedScrollView>
 
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-                                <com.airbnb.lottie.LottieAnimationView
-                                    android:id="@+id/lottieSwipeUp"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:layout_marginTop="@dimen/marginPadding_8"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:lottie_autoPlay="true"
-                                    app:lottie_fileName="swipeup.json"
-                                    app:lottie_loop="true" />
+       <!-- <include
+            android:id="@+id/loadingIndicator"
+            layout="@layout/full_screen_loading_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />-->
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="80dp"
-                                    android:layout_marginTop="@dimen/marginPadding_16"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    android:orientation="horizontal"
-                                    android:gravity="center"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@id/lottieSwipeUp">
-
-                                    <ImageView
-                                        android:id="@+id/linkedInLogo"
-                                        android:layout_width="80dp"
-                                        android:layout_height="80dp"
-                                        android:background="@drawable/opaque_button"
-                                        android:layout_marginEnd="@dimen/marginPadding_40"/>
-
-                                    <ImageView
-                                        android:id="@+id/githubLogo"
-                                        android:layout_width="80dp"
-                                        android:layout_height="80dp"
-                                        android:background="@drawable/opaque_button"
-                                        android:layout_marginEnd="@dimen/marginPadding_40"/>
-
-                                    <ImageView
-                                        android:id="@+id/websiteLogo"
-                                        android:layout_width="80dp"
-                                        android:layout_height="80dp"
-                                        android:background="@drawable/opaque_button"/>
-
-                                </LinearLayout>
-
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </androidx.core.widget.NestedScrollView>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

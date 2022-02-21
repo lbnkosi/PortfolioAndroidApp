@@ -2,16 +2,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-        <variable
-            name="backStack"
-            type="za.co.lbnkosi.portfolio.domain.model.BackStack" />
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true">
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/homeFragmentContainerView"
@@ -24,14 +18,14 @@
             tools:layout="@layout/fragment_home" />
 
         <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/portfolioFragmentContainerView"
-            android:name="za.co.lbnkosi.portfolio.presentation.features.portfolio.PortfolioFragment"
+            android:id="@+id/chatFragmentContainerView"
+            android:name="za.co.lbnkosi.portfolio.presentation.features.chat.ChatFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
             app:layout_constraintTop_toTopOf="parent"
-            tools:layout="@layout/fragment_portfolio" />
+            tools:layout="@layout/fragment_chat" />
 
         <View
             android:layout_width="match_parent"

@@ -4,6 +4,7 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -46,8 +47,8 @@ android {
 
 dependencies {
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-native-mt")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0-native-mt")
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.10")
     implementation("androidx.core:core-ktx:1.7.0")
@@ -55,9 +56,9 @@ dependencies {
     //Android
     implementation("androidx.viewpager2:viewpager2:1.0.0")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
-    implementation("androidx.appcompat:appcompat:1.4.0")
-    implementation("com.google.android.material:material:1.4.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.2")
+    implementation("androidx.appcompat:appcompat:1.4.1")
+    implementation("com.google.android.material:material:1.5.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.3")
 
     //Lottie
     implementation("com.airbnb.android:lottie:3.6.0")
@@ -71,23 +72,23 @@ dependencies {
     implementation("com.jakewharton.timber:timber:5.0.1")
 
     //Arch Components
-    implementation("androidx.lifecycle:lifecycle-common:2.4.0")
+    implementation("androidx.lifecycle:lifecycle-common:2.4.1")
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
-    implementation("androidx.fragment:fragment-ktx:1.4.0")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.0")
-    implementation("androidx.lifecycle:lifecycle-common-java8:2.4.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
+    implementation("androidx.fragment:fragment-ktx:1.4.1")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.1")
+    implementation("androidx.lifecycle:lifecycle-common-java8:2.4.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1")
 
     //Room - https://developer.android.com/jetpack/androidx/releases/room
-    kapt("androidx.room:room-compiler:2.4.0") //Kapt
-    implementation("androidx.room:room-ktx:2.4.0")
-    implementation("androidx.room:room-runtime:2.4.0")
-    testImplementation("androidx.room:room-testing:2.4.0") //testImplementation
+    kapt("androidx.room:room-compiler:2.4.1") //Kapt
+    implementation("androidx.room:room-ktx:2.4.1")
+    implementation("androidx.room:room-runtime:2.4.1")
+    testImplementation("androidx.room:room-testing:2.4.1") //testImplementation
 
     //Stetho - https://github.com/facebookarchive/stetho
-    implementation("com.facebook.stetho:stetho:1.5.1")
-    implementation("com.facebook.stetho:stetho-okhttp3:1.5.1")
+    implementation("com.facebook.stetho:stetho:1.6.0")
+    implementation("com.facebook.stetho:stetho-okhttp3:1.6.0")
 
     //StreamSupport - https://github.com/stefan-zobel/streamsupport
     implementation("net.sourceforge.streamsupport:streamsupport:1.7.3")
@@ -104,17 +105,44 @@ dependencies {
 
     implementation("com.amitshekhar.android:debug-db:1.0.6")
 
-    implementation(platform("com.google.firebase:firebase-bom:29.0.3"))
+    //Firebase
+    implementation(platform("com.google.firebase:firebase-bom:29.1.0"))
     implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation("com.google.firebase:firebase-auth-ktx")
+    implementation ("com.google.firebase:firebase-firestore-ktx")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.0-native-mt")
 
-    implementation("com.google.dagger:hilt-android:2.38.1")
-    implementation("com.google.dagger:hilt-compiler:2.38.1")
+    implementation("com.google.dagger:hilt-android:2.40.5")
+    implementation("com.google.dagger:hilt-compiler:2.40.5")
     implementation("androidx.hilt:hilt-compiler:1.0.0")
     implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
 
     testImplementation("junit:junit:")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+    testImplementation("org.robolectric:robolectric:4.7.3")
 
-    implementation ("de.hdodenhof:circleimageview:3.1.0")
+
+    testImplementation("com.google.truth:truth:1.1.3")
+
+    implementation("de.hdodenhof:circleimageview:3.1.0")
+
+    implementation("com.facebook.shimmer:shimmer:0.5.0")
+
+    // For Robolectric tests.
+    testImplementation("com.google.dagger:hilt-android-testing:2.38.1")
+    // ...with Kotlin.
+    kaptTest("com.google.dagger:hilt-android-compiler:2.38.1")
+    // ...with Java.
+    testAnnotationProcessor("com.google.dagger:hilt-android-compiler:2.38.1")
+
+
+    // For instrumented tests.
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.38.1")
+    // ...with Kotlin.
+    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.38.1")
+    // ...with Java.
+    androidTestAnnotationProcessor("com.google.dagger:hilt-android-compiler:2.38.1")
+
+    debugImplementation ("com.amitshekhar.android:debug-db:1.0.6")
 }

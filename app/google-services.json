@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "109522121966",
+    "project_id": "portfolio-93a5d",
+    "storage_bucket": "portfolio-93a5d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:109522121966:android:d33e41a205f8a4e6ae6fff",
+        "android_client_info": {
+          "package_name": "za.co.lbnkosi.portfolio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "109522121966-41chgvcpi9rm9u8d2dcc4ibiudrhbj2a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxPshQCTcwskkSpsSiw4xrgcs72yvKNC8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "109522121966-41chgvcpi9rm9u8d2dcc4ibiudrhbj2a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

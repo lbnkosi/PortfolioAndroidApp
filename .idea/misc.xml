@@ -3,23 +3,40 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../../layout/custom_preview.xml" value="0.487962962962963" />
         <entry key="app/src/main/res/drawable/app_background_light.xml" value="0.4305555555555556" />
         <entry key="app/src/main/res/drawable/bio_background.xml" value="0.42777777777777776" />
         <entry key="app/src/main/res/drawable/bottom_nav_colour.xml" value="0.4305555555555556" />
         <entry key="app/src/main/res/drawable/bottom_sheet_round_top_solid_white.xml" value="0.125" />
+        <entry key="app/src/main/res/drawable/chat_bg.xml" value="0.2635" />
         <entry key="app/src/main/res/drawable/circle_shape.xml" value="0.4305555555555556" />
         <entry key="app/src/main/res/drawable/home_gradient.xml" value="0.23" />
+        <entry key="app/src/main/res/drawable/left_chat_bubble_bg.xml" value="0.2635" />
         <entry key="app/src/main/res/drawable/opaque_button.xml" value="0.1585" />
+        <entry key="app/src/main/res/drawable/right_chat_bubble_bg.xml" value="0.2635" />
+        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.44722222222222224" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/bottom_sheet_dialog_custom_view.xml" value="0.49583333333333335" />
+        <entry key="app/src/main/res/layout/chat_bubble_layout.xml" value="0.49583333333333335" />
         <entry key="app/src/main/res/layout/custom_appbar_layout_include.xml" value="0.335" />
         <entry key="app/src/main/res/layout/education_block_layout_include.xml" value="0.335" />
         <entry key="app/src/main/res/layout/experience_block_layout_include.xml" value="0.335" />
         <entry key="app/src/main/res/layout/experience_card_view_layout_include.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/featured_layout.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/fragment_auth.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/fragment_education.xml" value="0.49583333333333335" />
+        <entry key="app/src/main/res/layout/fragment_featured.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3278236914600551" />
         <entry key="app/src/main/res/layout/fragment_portfolio.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_work.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/full_screen_loading_indicator.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/left_chat_bubble.xml" value="0.49583333333333335" />
+        <entry key="app/src/main/res/layout/login_include.xml" value="0.49583333333333335" />
         <entry key="app/src/main/res/layout/profile_header_include.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/profile_header_include_shimmer.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/signin_include.xml" value="0.335" />
         <entry key="app/src/main/res/layout/skills_layout_include.xml" value="0.335" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.49583333333333335" />
       </map>

@@ -9,5 +9,6 @@ data class Project(
     var downloadLink: String = "",
     var githubLink: String = "",
     var description: String = "",
-    var image: String = ""
+    var image: String = "",
+    var  featured: Boolean = false
 )

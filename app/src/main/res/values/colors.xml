@@ -15,4 +15,9 @@
     <color name="black_top">#FF000000</color>
     <color name="black_bottom">#63000000</color>
     <color name="black_middle">#D7000000</color>
+
+    <color name="card_view_stroke">#2A000000</color>
+
+    <color name="darkBackground">#151515</color>
+    <color name="lightBackground">#F8F8F8</color>
 </resources>

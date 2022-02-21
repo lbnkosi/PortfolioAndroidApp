@@ -3,4 +3,6 @@
 
     <string name="okay_text">Okay</string>
     <string name="cancel">Cancel</string>
+    <string name="see_more_button">See More</string>
+    <string name="see_less_button">See Less</string>
 </resources>

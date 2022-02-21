@@ -2,49 +2,150 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="portfolio"
+            type="za.co.lbnkosi.portfolio.domain.model.Portfolio" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/marginPadding_16"
+            android:background="?attr/colorOnPrimary"
+            app:layout_constraintBottom_toTopOf="@id/aboutSectionLinearLayout"
+            app:layout_constraintTop_toBottomOf="@id/headerImageView" />
 
         <ImageView
             android:id="@+id/headerImageView"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="150dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/template"
-            app:layout_constraintHeight_percent="0.3"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription"
-            tools:src="@drawable/template" />
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="-50dp"
-            app:cardCornerRadius="@dimen/marginPadding_20"
-            app:cardElevation="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/headerImageView">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/marginPadding_16">
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.cardview.widget.CardView>
+            tools:src="@drawable/header_image" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image"
+            android:id="@+id/profileImageView"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginStart="@dimen/marginPadding_16"
-            android:src="@drawable/subject"
-            app:civ_border_color="?attr/colorOnSurface"
-            app:civ_border_width="2dp"
-            app:layout_constraintBottom_toBottomOf="@id/headerImageView"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:layout_marginStart="@dimen/marginPadding_32"
+            android:layout_marginTop="-60dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/headerImageView"
+            tools:src="@drawable/subject" />
+
+        <TextView
+            android:id="@+id/nameTextView"
+            style="@style/Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginPadding_32"
+            android:layout_marginTop="@dimen/marginPadding_16"
+            android:text="@{portfolio.user.name + ' ' + portfolio.user.surname}"
+            android:textColor="?attr/colorOnSecondary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profileImageView"
+            tools:text="Lebogang Nkosi" />
+
+        <TextView
+            android:id="@+id/titleTextView"
+            style="@style/Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginPadding_32"
+            android:layout_marginTop="@dimen/marginPadding_2"
+            android:alpha="0.7"
+            android:textColor="?attr/colorOnSecondary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameTextView"
+            tools:text="Android Developer at DVT" />
+
+        <View
+            android:id="@+id/divView"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/marginPadding_32"
+            android:layout_marginTop="@dimen/marginPadding_8"
+            android:alpha="0.2"
+            android:background="?attr/colorOnSecondary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleTextView"
+            app:layout_constraintWidth_percent="0.1" />
+
+        <TextView
+            android:id="@+id/workAndEducationTextView"
+            style="@style/Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginPadding_32"
+            android:layout_marginTop="@dimen/marginPadding_8"
+            android:textColor="?attr/colorOnSecondary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divView"
+            tools:text="DVT - University of South Africa" />
+
+        <TextView
+            android:id="@+id/cityTextView"
+            style="@style/Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginPadding_32"
+            android:layout_marginTop="@dimen/marginPadding_2"
+            android:alpha="0.7"
+            android:textColor="?attr/colorOnSecondary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/workAndEducationTextView"
+            tools:text="City of Johannesburg, Gauteng, South Africa" />
+
+        <LinearLayout
+            android:id="@+id/aboutSectionLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginPadding_32"
+            android:background="?attr/colorOnPrimary"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/cityTextView">
+
+            <TextView
+                android:id="@+id/aboutTitleTextView"
+                style="@style/SectionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/marginPadding_32"
+                android:layout_marginTop="@dimen/marginPadding_16"
+                android:layout_marginBottom="@dimen/marginPadding_16"
+                android:text="About"
+                android:textColor="?attr/colorOnSecondary" />
+
+            <TextView
+                android:id="@+id/aboutTextView"
+                style="@style/Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/marginPadding_32"
+                android:layout_marginEnd="@dimen/marginPadding_32"
+                android:layout_marginBottom="@dimen/marginPadding_8"
+                tools:text="Lorem ipsum"
+                android:textColor="?attr/colorOnSecondary" />
+
+            <TextView
+                android:id="@+id/seeMoreTextView"
+                style="@style/Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/marginPadding_32"
+                android:layout_marginBottom="@dimen/marginPadding_16"
+                android:text="@string/see_more_button" />
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

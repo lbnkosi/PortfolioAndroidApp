@@ -5,6 +5,8 @@ import za.co.lbnkosi.portfolio.domain.model.*
 
 interface IPortfolioRepository {
 
+    suspend fun getPortfolioFromCache(): Flow<Resource<Portfolio>>
+
     suspend fun fetchUser(key: String, uid: String): Flow<Resource<User>>
 
     suspend fun getPortfolio(key: String, uid: String): Flow<Resource<Portfolio>>

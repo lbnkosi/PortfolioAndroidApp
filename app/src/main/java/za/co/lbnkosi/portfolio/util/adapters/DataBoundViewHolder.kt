@@ -1,4 +1,4 @@
-package za.co.lbnkosi.portfolio.presentation.common
+package za.co.lbnkosi.portfolio.util.adapters
 
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView

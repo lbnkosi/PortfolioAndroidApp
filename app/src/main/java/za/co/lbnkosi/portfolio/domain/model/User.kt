@@ -13,5 +13,9 @@ data class User(
     var profileImage: String = "",
     var gender: String = Gender.MALE.toString(),
     var dateOfBirth: Date = Date(),
-    var resume: String = ""
+    var resume: String = "",
+    var resumeOutdated: Boolean = false,
+    var headerImage: String = "",
+    var summary: String = "",
+    //TODO add activity model to webservice ie track new skills learnt, articles read, courses finished, maybe you finished a vision board or started a new project
 )

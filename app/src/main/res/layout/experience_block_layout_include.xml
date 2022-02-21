@@ -1,56 +1,90 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="@dimen/marginPadding_8"
-        android:layout_margin="@dimen/marginPadding_16"
-        app:cardElevation="0dp"
-        app:cardBackgroundColor="?attr/colorOnPrimary">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/companyLogoImageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="@dimen/marginPadding_16"
+            android:layout_marginStart="@dimen/marginPadding_32"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/subject" />
+
+        <TextView
+            android:id="@+id/positionTextView"
+            style="@style/SectionTitle.Subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginPadding_10"
+            android:textColor="?attr/colorOnSecondary"
+            app:layout_constraintStart_toEndOf="@id/companyLogoImageView"
+            app:layout_constraintTop_toTopOf="@id/companyLogoImageView"
+            tools:text="Android Developer" />
+
+        <TextView
+            android:id="@+id/companyNameTextview"
+            style="@style/Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginPadding_10"
+            android:layout_marginTop="@dimen/marginPadding_2"
+            android:textColor="?attr/colorOnSecondary"
+            app:layout_constraintStart_toEndOf="@id/companyLogoImageView"
+            app:layout_constraintTop_toBottomOf="@id/positionTextView"
+            tools:text="bidorbuy.co.za" />
+
+        <TextView
+            android:id="@+id/positionDurationTextView"
+            style="@style/Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginPadding_10"
+            android:layout_marginTop="@dimen/marginPadding_2"
+            android:alpha="0.7"
+            android:textColor="?attr/colorOnSecondary"
+            app:layout_constraintStart_toEndOf="@id/companyLogoImageView"
+            app:layout_constraintTop_toBottomOf="@id/companyNameTextview"
+            tools:text="June 2019 - May 2021" />
+
+        <TextView
+            android:id="@+id/positionDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginPadding_10"
+            android:layout_marginTop="@dimen/marginPadding_16"
+            style="@style/Caption"
+            android:textColor="?attr/colorOnSecondary"
+            app:layout_constraintStart_toEndOf="@id/companyLogoImageView"
+            app:layout_constraintTop_toBottomOf="@id/positionDurationTextView"
+            tools:text="Lorem Ipsum" />
+
+        <TextView
+            android:id="@+id/seeMoreTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/positionDescription"
+            app:layout_constraintStart_toEndOf="@id/companyLogoImageView"
+            android:layout_marginStart="@dimen/marginPadding_10"
+            style="@style/Caption"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/marginPadding_16"
+            android:textColor="?attr/colorOnSecondary"
+            android:alpha="0.7"
+            android:layout_marginTop="@dimen/marginPadding_4"
+            android:text="@string/see_more_button"/>
+
+        <View
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0.5dp"
+            android:alpha="0.3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="?attr/colorOnSecondary"/>
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/expImageView"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/subject"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/companyTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/expImageView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:fontFamily="@font/sharp_sans"
-                android:textColor="?attr/colorOnSecondary"
-                android:layout_marginTop="@dimen/marginPadding_16"
-                android:text="bidorbuy"/>
-
-            <TextView
-                android:id="@+id/positionTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/companyTextView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:fontFamily="@font/montserrat_regular"
-                android:textSize="@dimen/textSize_10"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="@dimen/marginPadding_16"
-                android:textColor="?attr/colorOnSecondary"
-                android:layout_marginTop="@dimen/marginPadding_8"
-                android:text="Android Developer"/>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

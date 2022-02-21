@@ -7,9 +7,7 @@ import androidx.databinding.DataBindingUtil
 import dagger.hilt.android.AndroidEntryPoint
 import za.co.lbnkosi.portfolio.R
 import za.co.lbnkosi.portfolio.databinding.ActivityHomeBinding
-import za.co.lbnkosi.portfolio.domain.model.BackStack
 import za.co.lbnkosi.portfolio.presentation.base.BaseActivity
-import za.co.lbnkosi.portfolio.presentation.base.BaseFragment
 
 @AndroidEntryPoint
 class HomeActivity : BaseActivity() {
@@ -21,22 +19,26 @@ class HomeActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
+        configureBottomNavigation()
     }
 
-    private fun showHomeFragment() {
-        binding.backStack = BackStack(isHome = true)
+    private fun configureBottomNavigation() {
+        binding.bottomNavigationView.selectedItemId = R.id.home
+        binding.homeFragmentContainerView.isVisible = true
+        binding.bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.home -> {
+                    binding.chatFragmentContainerView.isVisible = false
+                    binding.homeFragmentContainerView.isVisible = true
+                    true
+                }
+                R.id.chat -> {
+                    binding.chatFragmentContainerView.isVisible = true
+                    binding.homeFragmentContainerView.isVisible = false
+                    true
+                }
+                else -> false
+            }
+        }
     }
-
-    private fun showPortfolioFragment() {
-        binding.backStack = BackStack(isPortfolio = true)
-    }
-
-    private fun showAboutFragment() {
-        binding.backStack = BackStack(isAbout = true)
-    }
-
-    private fun showSettingsFragment() {
-        binding.backStack = BackStack(isSettings = true)
-    }
-
 }

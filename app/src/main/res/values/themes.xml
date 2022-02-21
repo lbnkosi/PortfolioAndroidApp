@@ -13,6 +13,7 @@
         <item name="android:statusBarColor">?attr/colorOnPrimary</item>
         <item name="android:windowLightStatusBar">true</item>
         <!-- Customize your theme here. -->
+        <item name="colorOnBackground">@color/lightBackground</item>
 
         <item name="android:ambientShadowAlpha">0.02</item>
         <item name="android:spotShadowAlpha">0.02</item>
@@ -55,4 +56,30 @@
     <style name="AboutMeCustomDialogButton" parent="@android:style/Widget.Holo.Button.Borderless">
         <item name="android:textColor">?attr/colorPrimary</item>
     </style>
+
+    <!-- Section Title Start -->
+
+    <style name="Title">
+        <item name="android:textSize">@dimen/textSize_22</item>
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <style name="SectionTitle">
+        <item name="android:textSize">@dimen/textSize_18</item>
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <style name="SectionTitle.Subtitle">
+        <item name="android:textSize">@dimen/textSize_16</item>
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+    <!-- Section Title End -->
+
+    <!-- Section Caption Start -->
+    <style name="Caption">
+        <item name="android:textSize">@dimen/textSize_12</item>
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+    <!-- Section Caption End -->
+
 </resources>

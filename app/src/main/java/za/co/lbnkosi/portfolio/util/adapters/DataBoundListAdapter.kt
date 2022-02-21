@@ -1,4 +1,4 @@
-package za.co.lbnkosi.portfolio.presentation.common
+package za.co.lbnkosi.portfolio.util.adapters
 
 import android.annotation.SuppressLint
 import android.os.AsyncTask

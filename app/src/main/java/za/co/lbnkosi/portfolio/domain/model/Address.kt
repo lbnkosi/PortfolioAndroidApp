@@ -11,5 +11,5 @@ data class Address(
     var city: String = "",
     var province: String = "",
     var postalCode: String = "",
-    var addressType: String = AddressType.HOME.toString()
+    var addressType: String = AddressType.HOME.toString(),
 )
