@@ -11,9 +11,10 @@ import za.co.lbnkosi.portfolio.domain.model.Project
 import za.co.lbnkosi.portfolio.presentation.base.BaseFragment
 import za.co.lbnkosi.portfolio.presentation.adapters.FeaturedAdapter
 import za.co.lbnkosi.portfolio.presentation.features.home.HomeViewModel
+import za.co.lbnkosi.portfolio.presentation.features.projects.ViewProjectCallback
 
 @AndroidEntryPoint
-class FeaturedFragment : BaseFragment() {
+class FeaturedFragment : BaseFragment(), ViewProjectCallback {
 
     private lateinit var binding: FragmentFeaturedBinding
 
@@ -34,8 +35,12 @@ class FeaturedFragment : BaseFragment() {
     }
 
     private fun configureFeaturedRecyclerView(projects: ArrayList<Project>) {
-        binding.featuredRecyclerView.adapter = FeaturedAdapter()
+        binding.featuredRecyclerView.adapter = FeaturedAdapter(this)
         (binding.featuredRecyclerView.adapter as FeaturedAdapter).replace(projects)
+    }
+
+    override fun onProjectClicked(project: Project) {
+        //implement this
     }
 
 }

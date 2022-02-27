@@ -30,10 +30,28 @@ class HomeActivity : BaseActivity() {
                 R.id.home -> {
                     binding.chatFragmentContainerView.isVisible = false
                     binding.homeFragmentContainerView.isVisible = true
+                    binding.settingsFragmentContainerView.isVisible = false
+                    binding.aboutFragmentContainerView.isVisible = false
                     true
                 }
                 R.id.chat -> {
                     binding.chatFragmentContainerView.isVisible = true
+                    binding.homeFragmentContainerView.isVisible = false
+                    binding.settingsFragmentContainerView.isVisible = false
+                    binding.aboutFragmentContainerView.isVisible = false
+                    true
+                }
+                R.id.settings -> {
+                    binding.settingsFragmentContainerView.isVisible = true
+                    binding.chatFragmentContainerView.isVisible = false
+                    binding.homeFragmentContainerView.isVisible = false
+                    binding.aboutFragmentContainerView.isVisible = false
+                    true
+                }
+                R.id.about -> {
+                    binding.aboutFragmentContainerView.isVisible = true
+                    binding.settingsFragmentContainerView.isVisible = false
+                    binding.chatFragmentContainerView.isVisible = false
                     binding.homeFragmentContainerView.isVisible = false
                     true
                 }

@@ -4,16 +4,15 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import dagger.hilt.android.AndroidEntryPoint
+import za.co.lbnkosi.portfolio.util.sharedPrefs.SharedPreferenceHelper
 
 @AndroidEntryPoint
 abstract class BaseActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private var sharedPreferenceHelper: SharedPreferenceHelper = SharedPreferenceHelper()
 
-    fun replaceFragment() {
-
+    fun sharedPrefs(): SharedPreferenceHelper {
+        return sharedPreferenceHelper
     }
 
 }

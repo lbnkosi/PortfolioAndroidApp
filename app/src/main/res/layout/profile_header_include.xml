@@ -24,6 +24,7 @@
             app:layout_constraintTop_toBottomOf="@id/headerImageView" />
 
         <ImageView
+            loadImage="@{portfolio.user.headerImage}"
             android:id="@+id/headerImageView"
             android:layout_width="match_parent"
             android:layout_height="150dp"
@@ -32,6 +33,7 @@
             tools:src="@drawable/header_image" />
 
         <de.hdodenhof.circleimageview.CircleImageView
+            loadImage="@{portfolio.user.profileImage}"
             android:id="@+id/profileImageView"
             android:layout_width="100dp"
             android:layout_height="100dp"

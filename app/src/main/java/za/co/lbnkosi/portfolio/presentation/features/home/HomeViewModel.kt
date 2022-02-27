@@ -19,18 +19,30 @@ class HomeViewModel @Inject constructor(private val useCase: PortfolioUseCase) :
 
     var portfolioSource: Portfolio? = null
 
+    val showLoading: LiveData<Boolean>
+        get() = _showLoading
+
     val portfolio: LiveData<Portfolio?>
         get() = _portfolio
 
+    val dynamicContent: LiveData<DynamicContent?>
+        get() = _dynamicContent
+
+    private var _showLoading: MutableLiveData<Boolean> = MutableLiveData(false)
+
     private var _portfolio: MutableLiveData<Portfolio?> = MutableLiveData(Portfolio())
 
+    private var _dynamicContent: MutableLiveData<DynamicContent?> = MutableLiveData(DynamicContent())
+
     fun fetchPortfolio() {
+        _showLoading.value = true
         if (isConnected()) {
             viewModelScope.launch {
                 useCase.getPortfolio(Constants.KEY, Constants.UID).collect {
                     if (it.resourceStatus == ResourceStatus.SUCCESS) {
                         _portfolio.value = it.data
                         portfolioSource = it.data
+                        _showLoading.value = false
                     }
                 }
             }
@@ -40,15 +52,30 @@ class HomeViewModel @Inject constructor(private val useCase: PortfolioUseCase) :
     }
 
     private fun fetchPortfolioFromCache() {
+        _showLoading.value = true
         viewModelScope.launch {
             useCase.getPortfolioFromCache().collect {
                 if (it.resourceStatus == ResourceStatus.SUCCESS) {
                     _portfolio.value = it.data
                     portfolioSource = it.data
+                    _showLoading.value = false
                 }
             }
         }
     }
 
+    fun fetchDynamicContent() {
+        if (isConnected()) {
+            viewModelScope.launch {
+                useCase.getDynamicContent(Constants.KEY, Constants.UID).collect {
+                    if (it.resourceStatus == ResourceStatus.SUCCESS) {
+                        _dynamicContent.value = it.data
+                    }
+                }
+            }
+        } else {
+            //offline
+        }
+    }
 
 }

@@ -27,6 +27,26 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:layout="@layout/fragment_chat" />
 
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/settingsFragmentContainerView"
+            android:name="za.co.lbnkosi.portfolio.presentation.features.settings.SettingsFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout="@layout/fragment_settings" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/aboutFragmentContainerView"
+            android:name="za.co.lbnkosi.portfolio.presentation.features.about.AboutFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout="@layout/fragment_about" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"

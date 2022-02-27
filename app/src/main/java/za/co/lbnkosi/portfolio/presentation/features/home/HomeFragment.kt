@@ -4,14 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
-import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 import za.co.lbnkosi.portfolio.R
 import za.co.lbnkosi.portfolio.databinding.FragmentHomeBinding
 import za.co.lbnkosi.portfolio.domain.model.Portfolio
-import za.co.lbnkosi.portfolio.domain.model.User
 import za.co.lbnkosi.portfolio.presentation.base.BaseFragment
 
 @AndroidEntryPoint
@@ -23,6 +20,12 @@ class HomeFragment : BaseFragment() {
 
     private val viewModel: HomeViewModel by activityViewModels()
 
+    companion object {
+        const val MAX_LINES_MIN = 3
+        const val MAX_LINES_MAX = 1000
+        const val ADDRESS_TYPE_WORK = "WORK"
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentHomeBinding.inflate(inflater)
         return binding.root
@@ -30,21 +33,23 @@ class HomeFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.loadingIndicator.viewModel = viewModel
+        configureSwipeToRefresh()
+        configureObservables()
+    }
 
+    private fun configureObservables() {
         viewModel.portfolio.observe(viewLifecycleOwner) {
-            //binding.loadingIndicator.root.isVisible = false
             binding.headerInclude.portfolio = it
-            it?.user?.let { user ->
-                setupImages(user)
-            }
             it?.let { portfolio ->
                 setupHeaderTextViews(portfolio)
+                configureSeeMoreTextView(portfolio)
             }
         }
-
         viewModel.fetchPortfolio()
-        //binding.loadingIndicator.root.isVisible = true
+    }
 
+    private fun configureSwipeToRefresh() {
         binding.swipeToRefresh.setOnRefreshListener {
             viewModel.fetchPortfolio()
             binding.swipeToRefresh.isRefreshing = false
@@ -52,43 +57,22 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun setupHeaderTextViews(portfolio: Portfolio) {
-        portfolio.workList.firstOrNull { predicate -> predicate.currentPosition }.apply {
-            binding.headerInclude.titleTextView.text = this?.position + " at " + this?.companyName
-        }
-
+        portfolio.workList.firstOrNull { predicate -> predicate.currentPosition }.apply { binding.headerInclude.titleTextView.text = getString(R.string.position_company_name, this?.position, this?.companyName) }
         val currentWork = portfolio.workList.firstOrNull { predicate -> predicate.currentPosition }
         val currentSchool = portfolio.educationList.firstOrNull { predicate -> predicate.enrolled }
-
-        binding.headerInclude.workAndEducationTextView.text = currentWork?.companyName + " - " + currentSchool?.name
-
-        portfolio.addressList.firstOrNull { predicate -> predicate.addressType == "WORK" }.apply {
-            binding.headerInclude.cityTextView.text = this?.city + ", " + this?.province
-        }
-
-        binding.headerInclude.aboutTextView.maxLines = 3
-        binding.headerInclude.aboutTextView.text = portfolio.user.summary
-
-        binding.headerInclude.seeMoreTextView.setOnClickListener {
-            if (!seeMore) {
-                seeMore = true
-                binding.headerInclude.aboutTextView.maxLines = 1000
-                binding.headerInclude.seeMoreTextView.text = getString(R.string.see_less_button)
-            } else {
-                seeMore = false
-                binding.headerInclude.aboutTextView.maxLines = 3
-                binding.headerInclude.seeMoreTextView.text = getString(R.string.see_more_button)
-            }
-        }
-
+        binding.headerInclude.workAndEducationTextView.text = getString(R.string.company_name_school_name, currentWork?.companyName, currentSchool?.name)
+        portfolio.addressList.firstOrNull { it.addressType == ADDRESS_TYPE_WORK }.apply { binding.headerInclude.cityTextView.text = getString(R.string.city_province, this?.city, this?.province) }
     }
 
-    private fun setupImages(user: User) {
-        user.headerImage.let {
-            Glide.with(this).load(it).placeholder(R.drawable.header_placeholder).error(R.drawable.header_image).into(binding.headerInclude.headerImageView)
-        }
-
-        user.profileImage.let {
-            Glide.with(this).load(it).placeholder(R.drawable.profile_placeholder).error(R.drawable.subject).into(binding.headerInclude.profileImageView)
+    private fun configureSeeMoreTextView(portfolio: Portfolio) {
+        binding.headerInclude.apply {
+            aboutTextView.text = portfolio.user.summary
+            aboutTextView.maxLines = MAX_LINES_MIN
+            seeMoreTextView.setOnClickListener {
+                seeMoreTextView.text = if (!seeMore) getString(R.string.see_less_button) else getString(R.string.see_more_button)
+                aboutTextView.maxLines = if (!seeMore) MAX_LINES_MAX else MAX_LINES_MIN
+                seeMore = !seeMore
+            }
         }
     }
 

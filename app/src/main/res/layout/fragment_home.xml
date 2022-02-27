@@ -4,7 +4,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true">
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipeToRefresh"
@@ -34,6 +35,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/marginPadding_16"
+                        tools:visibility="gone"
                         app:layout_constraintTop_toBottomOf="@id/headerInclude"
                         tools:layout="@layout/fragment_featured" />
 
@@ -43,6 +45,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/marginPadding_16"
+                        tools:visibility="gone"
                         app:layout_constraintTop_toBottomOf="@id/featuredFragment"
                         tools:layout="@layout/fragment_work" />
 
@@ -52,8 +55,27 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/marginPadding_16"
+                        tools:visibility="gone"
                         app:layout_constraintTop_toBottomOf="@id/workFragment"
                         tools:layout="@layout/fragment_education" />
+
+                    <androidx.fragment.app.FragmentContainerView
+                        android:id="@+id/skillsFragment"
+                        android:name="za.co.lbnkosi.portfolio.presentation.features.skills.SkillsFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/marginPadding_16"
+                        app:layout_constraintTop_toBottomOf="@id/educationFragment"
+                        tools:layout="@layout/fragment_skills" />
+
+                    <androidx.fragment.app.FragmentContainerView
+                        android:id="@+id/projectsFragment"
+                        android:name="za.co.lbnkosi.portfolio.presentation.features.projects.ProjectsFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/marginPadding_16"
+                        app:layout_constraintTop_toBottomOf="@id/skillsFragment"
+                        tools:layout="@layout/fragment_projects" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -61,13 +83,13 @@
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-       <!-- <include
+        <include
             android:id="@+id/loadingIndicator"
             layout="@layout/full_screen_loading_indicator"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />-->
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

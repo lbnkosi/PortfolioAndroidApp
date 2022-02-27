@@ -7,9 +7,10 @@ import javax.inject.Inject
 
 class PortfolioUseCase @Inject constructor(private val repository: IPortfolioRepository) {
 
-    suspend fun getPortfolio(key: String, uid: String): Flow<Resource<Portfolio>> = repository.getPortfolio(key, uid)
-
     suspend fun getPortfolioFromCache(): Flow<Resource<Portfolio>> = repository.getPortfolioFromCache()
 
+    suspend fun getPortfolio(key: String, uid: String): Flow<Resource<Portfolio>> = repository.getPortfolio(key, uid)
+
+    suspend fun getDynamicContent(key: String, uid: String): Flow<Resource<DynamicContent>> = repository.getDynamicContent(key, uid)
 
 }

@@ -11,6 +11,7 @@ interface PortfolioApiService {
         const val KEY = "key"
         const val UID = "uid"
         const val PORTFOLIO_PATH = "api/v1/portfolio"
+        const val DYNAMIC_CONTENT_PATH = "api/v1/dynamicContent"
         const val ADDRESS_PATH = "api/v1/addresses"
         const val COMPETENCY_PATH = "api/v1/competencies"
         const val CONTACT_PATH = "api/v1/contact"
@@ -29,64 +30,10 @@ interface PortfolioApiService {
         @Query(UID) uid: String,
     ): Call<Portfolio>
 
-    @GET(ADDRESS_PATH)
-    fun fetchAddress(
+    @GET(DYNAMIC_CONTENT_PATH)
+    fun fetchDynamicContent(
         @Query(KEY) key: String,
-        @Query(UID) uid: String,
-    ): Call<ArrayList<Address>>
-
-    @GET(COMPETENCY_PATH)
-    fun fetchCompetencies(
-        @Query(KEY) key: String,
-        @Query(UID) uid: String,
-    ): Call<ArrayList<Competency>>
-
-    @GET(CONTACT_PATH)
-    fun fetchContacts(
-        @Query(KEY) key: String,
-        @Query(UID) uid: String,
-    ): Call<ArrayList<Contact>>
-
-    @GET(EDUCATION_PATH)
-    fun fetchEducation(
-        @Query(KEY) key: String,
-        @Query(UID) uid: String,
-    ): Call<ArrayList<Education>>
-
-    @GET(LANGUAGE_PATH)
-    fun fetchLanguage(
-        @Query(KEY) key: String,
-        @Query(UID) uid: String,
-    ): Call<ArrayList<Language>>
-
-    @GET(PROJECT_PATH)
-    fun fetchProjects(
-        @Query(KEY) key: String,
-        @Query(UID) uid: String,
-    ): Call<ArrayList<Project>>
-
-    @GET(SKILL_PATH)
-    fun fetchSkills(
-        @Query(KEY) key: String,
-        @Query(UID) uid: String,
-    ): Call<ArrayList<Skill>>
-
-    @GET(SOCIAL_PATH)
-    fun fetchSocials(
-        @Query(KEY) key: String,
-        @Query(UID) uid: String,
-    ): Call<ArrayList<Social>>
-
-    @GET(USER_PATH)
-    fun fetchUser(
-        @Query(KEY) key: String,
-        @Query(UID) uid: String,
-    ): Call<User>
-
-    @GET(WORK_PATH)
-    fun fetchWork(
-        @Query(KEY) key: String,
-        @Query(UID) uid: String,
-    ): Call<ArrayList<Work>>
+        @Query(UID) uid: String
+    ): Call<DynamicContent>
 
 }
