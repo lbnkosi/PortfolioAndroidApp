@@ -11,6 +11,8 @@ class PortfolioUseCase @Inject constructor(private val repository: IPortfolioRep
 
     suspend fun getPortfolio(key: String, uid: String): Flow<Resource<Portfolio>> = repository.getPortfolio(key, uid)
 
+    suspend fun getDynamicContentFromCache(): Flow<Resource<DynamicContent>> = repository.getDynamicContentFromCache()
+
     suspend fun getDynamicContent(key: String, uid: String): Flow<Resource<DynamicContent>> = repository.getDynamicContent(key, uid)
 
 }

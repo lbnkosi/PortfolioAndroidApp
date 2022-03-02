@@ -8,6 +8,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import za.co.lbnkosi.portfolio.data.db.AppDatabase
+import za.co.lbnkosi.portfolio.data.db.DynamicContentDao
 import za.co.lbnkosi.portfolio.data.db.PortfolioDao
 import javax.inject.Singleton
 
@@ -17,7 +18,7 @@ object RoomModule {
 
     @Singleton
     @Provides
-    fun providesWeatherDatabase(@ApplicationContext context: Context): AppDatabase {
+    fun providesPortfolioDatabase(@ApplicationContext context: Context): AppDatabase {
         return Room.databaseBuilder(context, AppDatabase::class.java, AppDatabase.DATABASE_NAME)
             .fallbackToDestructiveMigration()
             .build()
@@ -25,8 +26,14 @@ object RoomModule {
 
     @Singleton
     @Provides
-    fun providesWeatherDao(database: AppDatabase): PortfolioDao {
+    fun providesPortfolioDao(database: AppDatabase): PortfolioDao {
         return database.portfolioDao()
+    }
+
+    @Singleton
+    @Provides
+    fun providesDynamicContentDao(database: AppDatabase): DynamicContentDao {
+        return database.dynamicContentDao()
     }
 
 }

@@ -3,7 +3,7 @@ package za.co.lbnkosi.portfolio.data.repository
 import com.google.firebase.auth.AuthResult
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import za.co.lbnkosi.portfolio.data.source.FirebaseDataSource
+import za.co.lbnkosi.portfolio.data.source.remote.firebase.FirebaseDataSource
 import za.co.lbnkosi.portfolio.domain.model.AuthModel
 import za.co.lbnkosi.portfolio.domain.model.ChatModel
 import za.co.lbnkosi.portfolio.domain.model.Resource

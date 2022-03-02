@@ -5,7 +5,6 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import za.co.lbnkosi.portfolio.data.repository.FirebaseRepository
-import za.co.lbnkosi.portfolio.data.repository.PortfolioRepository
 import za.co.lbnkosi.portfolio.domain.repository.IFirebaseRepository
 import za.co.lbnkosi.portfolio.domain.repository.IPortfolioRepository
 import javax.inject.Singleton

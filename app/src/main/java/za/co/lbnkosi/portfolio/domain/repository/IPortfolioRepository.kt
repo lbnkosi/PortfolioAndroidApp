@@ -11,4 +11,5 @@ interface IPortfolioRepository {
 
     suspend fun getDynamicContent(key: String, uid: String): Flow<Resource<DynamicContent>>
 
+    suspend fun getDynamicContentFromCache(): Flow<Resource<DynamicContent>>
 }

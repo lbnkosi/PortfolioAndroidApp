@@ -1,4 +1,4 @@
-package za.co.lbnkosi.portfolio.data.source
+package za.co.lbnkosi.portfolio.data.source.remote.firebase
 
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
@@ -56,7 +56,7 @@ class FirebaseDataSource {
         auth = Firebase.auth
         if (auth.currentUser != null) {
             auth.currentUser?.let {
-                val result = db.collection("chat").document(it.uid).collection("conversations").orderBy("date", Query.Direction.ASCENDING).get(Source.SERVER).await()
+                val result = db.collection("chat").document(it.uid).collection("conversations").orderBy("date", Query.Direction.ASCENDING).get(Source.DEFAULT).await()
                 val messages = ArrayList<ChatModel>()
                 result?.forEach { doc ->
                     messages.add(doc.toObject())

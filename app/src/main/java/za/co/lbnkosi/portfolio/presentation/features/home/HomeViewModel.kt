@@ -17,8 +17,6 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(private val useCase: PortfolioUseCase) : ViewModel() {
 
-    var portfolioSource: Portfolio? = null
-
     val showLoading: LiveData<Boolean>
         get() = _showLoading
 
@@ -35,14 +33,11 @@ class HomeViewModel @Inject constructor(private val useCase: PortfolioUseCase) :
     private var _dynamicContent: MutableLiveData<DynamicContent?> = MutableLiveData(DynamicContent())
 
     fun fetchPortfolio() {
-        _showLoading.value = true
         if (isConnected()) {
             viewModelScope.launch {
                 useCase.getPortfolio(Constants.KEY, Constants.UID).collect {
                     if (it.resourceStatus == ResourceStatus.SUCCESS) {
                         _portfolio.value = it.data
-                        portfolioSource = it.data
-                        _showLoading.value = false
                     }
                 }
             }
@@ -52,13 +47,10 @@ class HomeViewModel @Inject constructor(private val useCase: PortfolioUseCase) :
     }
 
     private fun fetchPortfolioFromCache() {
-        _showLoading.value = true
         viewModelScope.launch {
             useCase.getPortfolioFromCache().collect {
                 if (it.resourceStatus == ResourceStatus.SUCCESS) {
                     _portfolio.value = it.data
-                    portfolioSource = it.data
-                    _showLoading.value = false
                 }
             }
         }
@@ -74,7 +66,17 @@ class HomeViewModel @Inject constructor(private val useCase: PortfolioUseCase) :
                 }
             }
         } else {
-            //offline
+            fetchDynamicContentFromCache()
+        }
+    }
+
+    private fun fetchDynamicContentFromCache() {
+        viewModelScope.launch {
+            useCase.getDynamicContentFromCache().collect {
+                if (it.resourceStatus == ResourceStatus.SUCCESS) {
+                    _dynamicContent.value = it.data
+                }
+            }
         }
     }
 
