@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Portfolio</string>
+
+    <string name="okay_text">Okay</string>
+    <string name="cancel">Cancel</string>
+    <string name="see_more_button">See More</string>
+    <string name="see_less_button">See Less</string>
+
+    <!-- Header Strings -->
+    <!--
+        %1$s will be substituted by the string "Test"
+        %2$d will be substituted by the string "0"
+     -->
+    <string name="position_company_name">%s at %s</string>
+    <string name="company_name_school_name">%s - %s</string>
+    <string name="city_province">%s, %s</string>
+    <string name="android">Android</string>
+    <string name="firebaselogo">FirebaseLogo</string>
+    <string name="appcenterlogo">AppCenterLogo</string>
+    <string name="bitbucketlogo">BitbucketLogo</string>
+    <string name="awslogo">AWSLogo</string>
+    <string name="springlogo">SpringLogo</string>
+    <string name="stackbackground">stackBackground</string>
+    <string name="featuredimage">featuredImage</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_in">Sign In</string>
+
+</resources>

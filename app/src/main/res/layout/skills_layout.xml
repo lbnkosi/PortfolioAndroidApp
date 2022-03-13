@@ -1,0 +1,28 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/skillTextView"
+            style="@style/Caption"
+            android:layout_width="0dp"
+            android:layout_marginTop="@dimen/marginPadding_8"
+            android:layout_marginBottom="@dimen/marginPadding_8"
+            android:maxLines="1"
+            android:textColor="?attr/colorOnSecondary"
+            android:layout_marginStart="@dimen/marginPadding_32"
+            android:layout_marginEnd="@dimen/marginPadding_32"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Android Development" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,57 @@
+name: Android CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Decode firebase file
+      env:
+          FIREBASE_JSON: ${{ secrets.FIREBASE_JSON }}
+      run: echo "$FIREBASE_JSON" | base64 -d > app/google-services.json
+
+    - name: Decode secrets.properties file
+      env:
+        SECRETS_PROPERTIES: ${{ secrets.SECRETS_PROPERTIES }}
+      run: echo "$SECRETS_PROPERTIES" | base64 -d > secrets.properties
+
+    - name: Decode keystore file
+      env:
+        KEYSTORE_PROPS: ${{ secrets.KEYSTORE }}
+      run: echo "$KEYSTORE_PROPS" | base64 -d > app/release.keystore
+
+    - name: set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        cache: gradle
+
+    - name: build release
+      run:  ./gradlew assembleRelease
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+    - name: Build with Gradle
+      run: ./gradlew build
+
+    - name: upload artefact to App Center
+      uses: wzieba/AppCenter-Github-Action@v1
+      with:
+        appName: lebogangnkosi/Portfolio
+        token: ${{secrets.APP_CENTER_TOKEN}}
+        group: Testers
+        file: app/build/outputs/apk/release/app-release.apk
+        notifyTesters: true
+        debug: false

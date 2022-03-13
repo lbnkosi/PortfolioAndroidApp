@@ -1,0 +1,30 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorOnBackground">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="?attr/colorOnPrimary" />
+
+        <TextView
+            android:id="@+id/aliasTextView"
+            style="@style/Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginPadding_32"
+            android:layout_marginEnd="@dimen/marginPadding_32"
+            android:gravity="center|start"
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="@dimen/marginPadding_16"
+            app:drawableEndCompat="@drawable/ic_baseline_chevron_right_24"
+            tools:text="Visit my website" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

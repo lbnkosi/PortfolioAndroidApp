@@ -1,0 +1,187 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:background="?attr/colorOnBackground">
+
+        <View
+            android:id="@+id/settingsHeaderView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="?attr/colorOnPrimary"
+            app:layout_constraintHeight_percent="0.3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/settingsTitleTextView"
+            style="@style/Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/marginPadding_8"
+            android:text="Settings"
+            android:textColor="?attr/colorOnSecondary"
+            app:layout_constraintBottom_toBottomOf="@id/settingsHeaderView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/settingsSubtitleTextView"
+            style="@style/Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginPadding_8"
+            android:alpha="0.7"
+            android:text="Logout or delete your account"
+            android:textColor="?attr/colorOnSecondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/settingsTitleTextView" />
+
+        <TextView
+            android:id="@+id/logoutTitleTextView"
+            style="@style/Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginPadding_32"
+            android:background="?attr/colorOnPrimary"
+            android:paddingStart="@dimen/marginPadding_32"
+            android:paddingTop="@dimen/marginPadding_16"
+            android:paddingEnd="@dimen/marginPadding_32"
+            android:paddingBottom="@dimen/marginPadding_16"
+            android:text="Logout"
+            android:textColor="?attr/colorOnSecondary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/settingsHeaderView" />
+
+        <View
+            android:id="@+id/logoutDivView"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:alpha="0.05"
+            android:background="?attr/colorOnSecondary"
+            app:layout_constraintTop_toBottomOf="@id/logoutTitleTextView" />
+
+        <View
+            android:id="@+id/logoutView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="?attr/colorOnPrimary"
+            app:layout_constraintHeight_percent="0.16"
+            app:layout_constraintTop_toBottomOf="@id/logoutDivView" />
+
+        <TextView
+            android:id="@+id/logoutCaption"
+            style="@style/Caption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginPadding_32"
+            android:layout_marginEnd="@dimen/marginPadding_32"
+            android:alpha="0.7"
+            android:text="This action will log you out of your account. Your messages and account will not be lost."
+            android:textColor="?attr/colorOnSecondary"
+            app:layout_constraintBottom_toTopOf="@id/logoutButton"
+            app:layout_constraintEnd_toEndOf="@id/logoutView"
+            app:layout_constraintStart_toStartOf="@id/logoutView"
+            app:layout_constraintTop_toTopOf="@id/logoutView" />
+
+        <TextView
+            android:id="@+id/logoutButton"
+            style="@style/Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/settings_button_bg_orange"
+            android:gravity="center"
+            android:padding="@dimen/marginPadding_16"
+            android:text="Logout"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/logoutView" />
+
+        <TextView
+            android:id="@+id/deleteTitleTextView"
+            style="@style/Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginPadding_32"
+            android:background="?attr/colorOnPrimary"
+            android:paddingStart="@dimen/marginPadding_32"
+            android:paddingTop="@dimen/marginPadding_16"
+            android:paddingBottom="@dimen/marginPadding_16"
+            android:text="Delete Account"
+            android:textColor="?attr/colorOnSecondary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logoutButton" />
+
+        <View
+            android:id="@+id/deleteDiv"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:alpha="0.05"
+            android:background="?attr/colorOnSecondary"
+            app:layout_constraintTop_toBottomOf="@id/deleteTitleTextView" />
+
+        <View
+            android:id="@+id/deleteView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="?attr/colorOnPrimary"
+            app:layout_constraintHeight_percent="0.16"
+            app:layout_constraintTop_toBottomOf="@id/deleteDiv" />
+
+        <TextView
+            android:id="@+id/deleteChatsTextView"
+            style="@style/Caption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginPadding_32"
+            android:layout_marginEnd="@dimen/marginPadding_32"
+            android:alpha="0.7"
+            android:text="This action will delete your account and your messages. Please note that this action is not reversilbe."
+            android:textColor="?attr/colorOnSecondary"
+            app:layout_constraintBottom_toTopOf="@id/deleteAccountButton"
+            app:layout_constraintEnd_toEndOf="@id/deleteDiv"
+            app:layout_constraintStart_toStartOf="@id/deleteDiv"
+            app:layout_constraintTop_toTopOf="@id/deleteDiv" />
+
+        <TextView
+            android:id="@+id/deleteAccountButton"
+            style="@style/Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/settings_button_bg_red"
+            android:gravity="center"
+            android:padding="@dimen/marginPadding_16"
+            android:text="Delete Account"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/deleteView" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/deleteGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="deleteAccountButton, deleteChatsTextView, deleteDiv, deleteView, deleteTitleTextView" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/logoutGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="logoutCaption, logoutButton, logoutDivView, logoutView, logoutTitleTextView"/>
+
+        <TextView
+            android:id="@+id/settingsCaption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Caption"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/settingsHeaderView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="?attr/colorOnSecondary"
+            android:text="Settings available when logged in"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

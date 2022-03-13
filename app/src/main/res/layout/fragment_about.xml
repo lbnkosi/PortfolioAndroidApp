@@ -1,0 +1,187 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="dynamicContent"
+            type="za.co.lbnkosi.portfolio.domain.model.DynamicContent" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/colorOnPrimary">
+
+            <TextView
+                android:id="@+id/nameTextView"
+                style="@style/Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:text="@{dynamicContent.title}"
+                android:textColor="?attr/colorOnSecondary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Lebogang Nkosi" />
+
+            <TextView
+                android:id="@+id/tagLineTextView"
+                style="@style/Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginPadding_4"
+                android:alpha="0.7"
+                android:text="@{dynamicContent.subtitle}"
+                android:textColor="?attr/colorOnSecondary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/nameTextView"
+                tools:text="Software Developer" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animation"
+                isVisible="@{dynamicContent.shouldShowAnimation}"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="@dimen/marginPadding_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tagLineTextView"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="programming_dark.json"
+                app:lottie_loop="true" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/stackLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginPadding_32"
+                app:layout_constraintTop_toBottomOf="@id/animation">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:contentDescription="@string/stackbackground"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/button_bg"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:alpha="0.7"
+                    android:background="@color/black"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/stack"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    android:paddingTop="8dp"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="8dp"
+                        android:contentDescription="@string/android"
+                        android:src="@drawable/android_second_logo"
+                        app:tint="@color/white" />
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="8dp"
+                        android:contentDescription="@string/firebaselogo"
+                        android:src="@drawable/firebase_two"
+                        app:tint="@color/white" />
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="8dp"
+                        android:contentDescription="@string/appcenterlogo"
+                        android:src="@drawable/appcenter"
+                        app:tint="@color/white" />
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="8dp"
+                        android:contentDescription="@string/bitbucketlogo"
+                        android:src="@drawable/bitbucket"
+                        app:tint="@color/white" />
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="8dp"
+                        android:contentDescription="@string/awslogo"
+                        android:src="@drawable/aws"
+                        app:tint="@color/white" />
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="8dp"
+                        android:contentDescription="@string/springlogo"
+                        android:src="@drawable/springboot"
+                        app:tint="@color/white" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                android:id="@+id/descriptionTextView"
+                style="@style/Caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorOnBackground"
+                android:gravity="center"
+                android:padding="@dimen/marginPadding_32"
+                android:text="@{dynamicContent.aboutApp}"
+                android:textColor="?attr/colorOnSecondary"
+                app:layout_constraintTop_toBottomOf="@id/stackLayout"
+                tools:text="This is my Portfolio app which was built using Android, Firebase, AWS, Springboot and many more technologies. You can view my portfolio as well as chat with me if you would like to get in touch with me" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/dynamicContentRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/marginPadding_16"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/descriptionTextView"
+                tools:listitem="@layout/dynamic_content_list_layout" />
+
+            <TextView
+                style="@style/Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginPadding_32"
+                android:layout_marginBottom="@dimen/marginPadding_32"
+                android:textColor="?attr/colorOnSecondary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dynamicContentRecyclerView"
+                tools:text="Version 1.0.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

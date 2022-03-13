@@ -1,0 +1,76 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/projectImageView"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:scaleType="centerCrop"
+            tools:background="@color/black"
+            android:layout_marginTop="@dimen/marginPadding_22"
+            android:layout_marginStart="@dimen/marginPadding_32"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/android_logo" />
+
+        <TextView
+            android:id="@+id/projectNameTextView"
+            style="@style/SectionTitle.Subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginPadding_16"
+            android:textColor="?attr/colorOnSecondary"
+            app:layout_constraintStart_toEndOf="@id/projectImageView"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/marginPadding_18"
+            tools:text="Seamless Pay" />
+
+        <TextView
+            android:id="@+id/projectDescriptionTextView"
+            style="@style/Caption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginPadding_16"
+            android:layout_marginTop="@dimen/marginPadding_8"
+            android:layout_marginEnd="@dimen/marginPadding_32"
+            android:alpha="0.7"
+            android:textColor="?attr/colorOnSecondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/projectImageView"
+            app:layout_constraintTop_toBottomOf="@id/projectNameTextView"
+            tools:text="This is a project description. This is something I will work on until I finish it, hopefully" />
+
+        <TextView
+            android:id="@+id/viewProjectButtonTextView"
+            style="@style/Caption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginPadding_16"
+            android:layout_marginTop="@dimen/marginPadding_16"
+            android:layout_marginBottom="@dimen/marginPadding_22"
+            android:background="?attr/colorOnSecondary"
+            android:paddingStart="@dimen/marginPadding_16"
+            android:paddingTop="@dimen/marginPadding_8"
+            android:paddingEnd="@dimen/marginPadding_16"
+            android:paddingBottom="@dimen/marginPadding_8"
+            android:text="View Project"
+            android:textColor="?attr/colorOnPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/projectImageView"
+            app:layout_constraintTop_toBottomOf="@id/projectDescriptionTextView" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:alpha="0.3"
+            android:background="?attr/colorOnSecondary"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,44 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/userNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/SectionTitle"
+            android:layout_margin="@dimen/marginPadding_16"
+            android:textColor="?attr/colorOnSecondary"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Lebogang"/>
+
+        <TextView
+            android:id="@+id/userEmailTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/SectionTitle.Subtitle"
+            android:layout_marginStart="@dimen/marginPadding_16"
+            android:layout_marginTop="@dimen/marginPadding_4"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="@dimen/textSize_14"
+            android:layout_marginBottom="@dimen/marginPadding_16"
+            app:layout_constraintTop_toBottomOf="@id/userNameTextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="nkosilebogang95@gmail.com"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/colorOnSecondary"
+            android:alpha="0.2"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

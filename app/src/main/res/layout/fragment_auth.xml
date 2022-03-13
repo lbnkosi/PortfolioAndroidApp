@@ -1,0 +1,157 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="za.co.lbnkosi.portfolio.ui.features.chat.user.ChatViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:background="?attr/colorOnPrimary">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="@dimen/marginPadding_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/nameInputLayout"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="login_white.json"
+            app:lottie_loop="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please login to access the chat functionality"
+            app:layout_constraintTop_toBottomOf="@id/animation"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/Caption"
+            android:textColor="?attr/colorOnSecondary"
+            app:layout_constraintBottom_toTopOf="@id/nameInputLayout"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginPadding_32"
+            android:layout_marginEnd="@dimen/marginPadding_32"
+            android:layout_marginBottom="@dimen/marginPadding_16"
+            android:hint="Name"
+            app:layout_constraintBottom_toTopOf="@id/emailInputLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                style="@style/Caption"
+                android:inputType="textPersonName"
+                android:text="@={viewModel.authBaseObservable.name}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginPadding_32"
+            android:layout_marginEnd="@dimen/marginPadding_32"
+            android:layout_marginBottom="@dimen/marginPadding_16"
+            android:hint="Email"
+            app:layout_constraintBottom_toTopOf="@id/passwordInputLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                style="@style/Caption"
+                android:inputType="textEmailAddress"
+                android:text="@={viewModel.authBaseObservable.email}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginPadding_32"
+            android:layout_marginEnd="@dimen/marginPadding_32"
+            android:layout_marginBottom="@dimen/marginPadding_32"
+            android:hint="Password"
+            app:layout_constraintBottom_toTopOf="@id/authButton">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                style="@style/Caption"
+                android:inputType="textPassword"
+                android:text="@={viewModel.authBaseObservable.password}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/authButton"
+            style="@style/Caption"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginStart="@dimen/marginPadding_32"
+            android:layout_marginEnd="@dimen/marginPadding_32"
+            android:layout_marginBottom="@dimen/marginPadding_16"
+            android:text="Sign In"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/orTextView" />
+
+        <TextView
+            android:id="@+id/orTextView"
+            style="@style/Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/marginPadding_16"
+            android:text="Or"
+            android:textSize="@dimen/textSize_10"
+            app:layout_constraintBottom_toTopOf="@id/authTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/authTextView"
+            style="@style/Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/marginPadding_32"
+            android:text="Sign Up"
+            android:textColor="?attr/colorOnSecondary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/signUpGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="nameInputLayout"
+            tools:visibility="visible" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/signInGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="emailInputLayout, passwordInputLayout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

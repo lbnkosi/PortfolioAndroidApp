@@ -1,0 +1,116 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="za.co.lbnkosi.portfolio.ui.features.chat.user.ChatViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/chatHeaderView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="?attr/colorOnPrimary"
+            app:layout_constraintHeight_percent="0.3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileImageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="@dimen/marginPadding_32"
+            android:layout_marginBottom="@dimen/marginPadding_16"
+            app:layout_constraintBottom_toTopOf="@id/welcomeMessageTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:src="@drawable/subject" />
+
+        <TextView
+            android:id="@+id/welcomeMessageTitle"
+            style="@style/Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginPadding_32"
+            android:layout_marginEnd="@dimen/marginPadding_32"
+            android:layout_marginBottom="@dimen/marginPadding_10"
+            android:text="Hi there!"
+            android:textColor="?attr/colorOnSecondary"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/welcomeMessageTextView" />
+
+
+        <TextView
+            android:id="@+id/welcomeMessageTextView"
+            style="@style/Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginPadding_32"
+            android:layout_marginEnd="@dimen/marginPadding_32"
+            android:layout_marginBottom="@dimen/marginPadding_32"
+            android:alpha="0.7"
+            android:text="Welcome to my portfolio app. Send me a message so we can talk"
+            android:textColor="?attr/colorOnSecondary"
+            app:layout_constraintBottom_toBottomOf="@id/chatHeaderView" />
+
+        <View
+            android:id="@+id/chatContentView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="?attr/colorOnBackground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chatHeaderView" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chatRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/marginPadding_16"
+            android:layout_marginBottom="@dimen/marginPadding_16"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/messageInputLayout"
+            app:layout_constraintTop_toTopOf="@id/chatContentView"
+            app:reverseLayout="true"
+            tools:listitem="@layout/chat_bubble_layout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/messageInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginPadding_32"
+            android:layout_marginEnd="80dp"
+            android:layout_marginBottom="@dimen/marginPadding_16"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/SectionTitle.Subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/chat_bg"
+                android:hint="Write a message"
+                android:text="@={viewModel.chatBaseObservable.message}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/sendImageView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/marginPadding_16"
+            android:layout_marginEnd="@dimen/marginPadding_32"
+            android:src="@drawable/send_img"
+            app:layout_constraintBottom_toBottomOf="@id/messageInputLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/messageInputLayout"
+            app:layout_constraintTop_toTopOf="@id/messageInputLayout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

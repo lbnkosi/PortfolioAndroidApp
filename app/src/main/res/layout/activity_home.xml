@@ -1,0 +1,69 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/homeFragmentContainerView"
+            android:name="za.co.lbnkosi.portfolio.ui.features.home.HomeFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout="@layout/fragment_home" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/chatFragmentContainerView"
+            android:name="za.co.lbnkosi.portfolio.ui.features.chat.user.ChatFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout="@layout/fragment_chat" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/settingsFragmentContainerView"
+            android:name="za.co.lbnkosi.portfolio.ui.features.settings.SettingsFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout="@layout/fragment_settings" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/aboutFragmentContainerView"
+            android:name="za.co.lbnkosi.portfolio.ui.features.about.AboutFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout="@layout/fragment_about" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:alpha="0.15"
+            android:background="?attr/colorOnSecondary"
+            app:layout_constraintBottom_toTopOf="@id/bottomNavigationView" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="?attr/colorOnPrimary"
+            app:itemIconTint="?attr/colorOnSecondary"
+            app:itemTextColor="?attr/colorOnSecondary"
+            app:labelVisibilityMode="labeled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:menu="@menu/bottom_navigation_menu" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
