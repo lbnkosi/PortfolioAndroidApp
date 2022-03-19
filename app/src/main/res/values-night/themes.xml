@@ -56,4 +56,8 @@
     <style name="AboutMeCustomDialogButton" parent="@android:style/Widget.Holo.Button.Borderless">
         <item name="android:textColor">?attr/colorPrimary</item>
     </style>
+
+    <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+    </style>
 </resources>

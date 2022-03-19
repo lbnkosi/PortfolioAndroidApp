@@ -6,25 +6,32 @@
         <entry key="../../../../../../layout/custom_preview.xml" value="0.487962962962963" />
         <entry key="app/src/main/res/drawable-v24/settings_button_bg_orange.xml" value="0.258" />
         <entry key="app/src/main/res/drawable/about_text_bg.xml" value="0.258" />
+        <entry key="app/src/main/res/drawable/active_intro_circle.xml" value="0.273" />
+        <entry key="app/src/main/res/drawable/active_intro_circle_selector.xml" value="0.273" />
         <entry key="app/src/main/res/drawable/app_background_light.xml" value="0.4305555555555556" />
+        <entry key="app/src/main/res/drawable/bg_gradient.xml" value="0.273" />
         <entry key="app/src/main/res/drawable/bio_background.xml" value="0.42777777777777776" />
         <entry key="app/src/main/res/drawable/bottom_nav_colour.xml" value="0.4305555555555556" />
         <entry key="app/src/main/res/drawable/bottom_sheet_round_top_solid_white.xml" value="0.125" />
         <entry key="app/src/main/res/drawable/chat_bg.xml" value="0.2635" />
         <entry key="app/src/main/res/drawable/circle_shape.xml" value="0.4305555555555556" />
         <entry key="app/src/main/res/drawable/home_gradient.xml" value="0.23" />
+        <entry key="app/src/main/res/drawable/in_active_intro_circle.xml" value="0.273" />
         <entry key="app/src/main/res/drawable/left_chat_bubble_bg.xml" value="0.2635" />
         <entry key="app/src/main/res/drawable/opaque_button.xml" value="0.1585" />
+        <entry key="app/src/main/res/drawable/purple_rounded_solid_button_bg_10dp.xml" value="0.273" />
         <entry key="app/src/main/res/drawable/radio_group_bg.xml" value="0.2635" />
         <entry key="app/src/main/res/drawable/right_chat_bubble_bg.xml" value="0.2635" />
         <entry key="app/src/main/res/drawable/settings_button_bg_green.xml" value="0.258" />
         <entry key="app/src/main/res/drawable/settings_button_bg_orange.xml" value="0.258" />
         <entry key="app/src/main/res/drawable/settings_button_bg_red.xml" value="0.258" />
         <entry key="app/src/main/res/drawable/settings_button_bg_white.xml" value="0.2635" />
+        <entry key="app/src/main/res/drawable/splash_background.xml" value="0.273" />
         <entry key="app/src/main/res/layout/activity_admin_chat.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_admin_chat_thread.xml" value="0.49583333333333335" />
         <entry key="app/src/main/res/layout/activity_chat.xml" value="0.44722222222222224" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_intro_slider.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/admin_chat_user_layout.xml" value="0.375" />
         <entry key="app/src/main/res/layout/bottom_sheet_dialog_custom_view.xml" value="0.49583333333333335" />
@@ -50,6 +57,11 @@
         <entry key="app/src/main/res/layout/fragment_skills.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_work.xml" value="0.335" />
         <entry key="app/src/main/res/layout/full_screen_loading_indicator.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/intro_slider_header.xml" value="0.49583333333333335" />
+        <entry key="app/src/main/res/layout/intro_slider_navigation.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/intro_slider_one_fragment.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/intro_slider_three_fragment.xml" value="0.45" />
+        <entry key="app/src/main/res/layout/intro_slider_two_fragment.xml" value="0.49583333333333335" />
         <entry key="app/src/main/res/layout/left_chat_bubble.xml" value="0.49583333333333335" />
         <entry key="app/src/main/res/layout/login_include.xml" value="0.49583333333333335" />
         <entry key="app/src/main/res/layout/profile_header_include.xml" value="0.375" />

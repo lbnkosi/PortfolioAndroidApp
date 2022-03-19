@@ -1,0 +1,77 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/colorOnPrimary">
+
+        <include
+            android:id="@+id/headerInclude"
+            layout="@layout/intro_slider_header"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="48dp"
+            app:layout_constraintBottom_toTopOf="@id/title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/headerInclude"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="intro_slider_one.json"
+            app:lottie_loop="true" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginPadding_16"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="@dimen/marginPadding_16"
+            android:fontFamily="@font/sharp_sans"
+            android:gravity="center"
+            android:text="Welcome"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="@dimen/textSize_32"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/subTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/animationView" />
+
+        <TextView
+            android:id="@+id/subTitle"
+            style="@style/SectionTitle"
+            android:layout_width="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_height="wrap_content"
+            android:text="Thanks for the download"
+            android:textColor="?attr/colorOnSecondary"
+            android:textStyle="bold"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/purple_rounded_solid_button_bg_10dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:gravity="center"
+            android:lineSpacingExtra="5dp"
+            android:padding="22dp"
+            android:text="Welcome to my About Me app. This took a while to build and you can see why by checking out the source code on GitHub."
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/subTitle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
