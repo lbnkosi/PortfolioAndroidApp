@@ -16,12 +16,10 @@
 
             <ImageView
                 android:id="@+id/projectImageView"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
+                android:layout_width="250dp"
+                android:layout_height="200dp"
                 android:scaleType="centerCrop"
                 tools:background="@color/black"
-                android:layout_marginTop="@dimen/marginPadding_22"
-                android:layout_marginStart="@dimen/marginPadding_32"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@drawable/android_logo" />

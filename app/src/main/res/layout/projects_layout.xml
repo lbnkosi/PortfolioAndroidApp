@@ -10,12 +10,12 @@
             android:id="@+id/projectImageView"
             android:layout_width="55dp"
             android:layout_height="55dp"
-            android:scaleType="centerCrop"
-            tools:background="@color/black"
-            android:layout_marginTop="@dimen/marginPadding_22"
             android:layout_marginStart="@dimen/marginPadding_32"
+            android:layout_marginTop="@dimen/marginPadding_22"
+            android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            tools:background="@color/black"
             tools:src="@drawable/android_logo" />
 
         <TextView
@@ -24,10 +24,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/marginPadding_16"
+            android:layout_marginTop="@dimen/marginPadding_18"
             android:textColor="?attr/colorOnSecondary"
             app:layout_constraintStart_toEndOf="@id/projectImageView"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="@dimen/marginPadding_18"
             tools:text="Seamless Pay" />
 
         <TextView
@@ -53,7 +53,7 @@
             android:layout_marginStart="@dimen/marginPadding_16"
             android:layout_marginTop="@dimen/marginPadding_16"
             android:layout_marginBottom="@dimen/marginPadding_22"
-            android:background="?attr/colorOnSecondary"
+            android:background="@drawable/view_project_button"
             android:paddingStart="@dimen/marginPadding_16"
             android:paddingTop="@dimen/marginPadding_8"
             android:paddingEnd="@dimen/marginPadding_16"

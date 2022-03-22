@@ -107,6 +107,25 @@
             app:layout_constraintTop_toBottomOf="@id/workAndEducationTextView"
             tools:text="City of Johannesburg, Gauteng, South Africa" />
 
+        <TextView
+            android:id="@+id/downloadResumeTextView"
+            android:layout_width="wrap_content"
+            style="@style/Caption"
+            android:layout_height="wrap_content"
+            android:text="Download Resume"
+            android:alpha="0.7"
+            android:textColor="?attr/colorOnSecondary"
+            android:background="@drawable/stroke_rounded_button"
+            android:paddingTop="@dimen/marginPadding_10"
+            android:paddingBottom="@dimen/marginPadding_10"
+            android:paddingEnd="@dimen/marginPadding_10"
+            android:paddingStart="@dimen/marginPadding_10"
+            app:layout_constraintTop_toBottomOf="@id/headerImageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="@dimen/textSize_10"
+            android:layout_marginEnd="@dimen/marginPadding_16"
+            android:layout_marginTop="@dimen/marginPadding_16"/>
+
         <LinearLayout
             android:id="@+id/aboutSectionLinearLayout"
             android:layout_width="match_parent"

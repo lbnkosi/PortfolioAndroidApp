@@ -30,13 +30,22 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <androidx.fragment.app.FragmentContainerView
+                        android:id="@+id/languagesFragment"
+                        android:name="za.co.lbnkosi.portfolio.ui.features.language.LanguageFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/marginPadding_16"
+                        app:layout_constraintTop_toBottomOf="@id/headerInclude"
+                        tools:layout="@layout/fragment_languages" />
+
+                    <androidx.fragment.app.FragmentContainerView
                         android:id="@+id/featuredFragment"
                         android:name="za.co.lbnkosi.portfolio.ui.features.featured.FeaturedFragment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/marginPadding_16"
                         tools:visibility="gone"
-                        app:layout_constraintTop_toBottomOf="@id/headerInclude"
+                        app:layout_constraintTop_toBottomOf="@id/languagesFragment"
                         tools:layout="@layout/fragment_featured" />
 
                     <androidx.fragment.app.FragmentContainerView

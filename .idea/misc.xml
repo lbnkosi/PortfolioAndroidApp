@@ -27,6 +27,8 @@
         <entry key="app/src/main/res/drawable/settings_button_bg_red.xml" value="0.258" />
         <entry key="app/src/main/res/drawable/settings_button_bg_white.xml" value="0.2635" />
         <entry key="app/src/main/res/drawable/splash_background.xml" value="0.273" />
+        <entry key="app/src/main/res/drawable/stroke_rounded_button.xml" value="0.273" />
+        <entry key="app/src/main/res/drawable/view_project_button.xml" value="0.273" />
         <entry key="app/src/main/res/layout/activity_admin_chat.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_admin_chat_thread.xml" value="0.49583333333333335" />
         <entry key="app/src/main/res/layout/activity_chat.xml" value="0.44722222222222224" />
@@ -51,6 +53,7 @@
         <entry key="app/src/main/res/layout/fragment_education.xml" value="0.49583333333333335" />
         <entry key="app/src/main/res/layout/fragment_featured.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.29768605378361473" />
+        <entry key="app/src/main/res/layout/fragment_languages.xml" value="0.49583333333333335" />
         <entry key="app/src/main/res/layout/fragment_portfolio.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_projects.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.335" />
