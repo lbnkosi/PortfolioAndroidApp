@@ -35,7 +35,7 @@ class SkillsFragment : BaseFragment() {
 
     private fun configureSkillsChipGroup(skills: ArrayList<Skill>) {
         skills.forEach {
-            binding.chipGroup.addView(ChipLayoutBinding.inflate(layoutInflater).apply { this.skillNameChip.text = it.name }.root)
+            binding.chipGroup.addView(ChipLayoutBinding.inflate(layoutInflater).apply { this.chip.text = it.name }.root)
         }
     }
 }

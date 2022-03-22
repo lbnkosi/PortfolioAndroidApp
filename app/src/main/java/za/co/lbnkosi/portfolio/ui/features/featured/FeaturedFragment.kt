@@ -1,5 +1,7 @@
 package za.co.lbnkosi.portfolio.ui.features.featured
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -40,7 +42,8 @@ class FeaturedFragment : BaseFragment(), ViewProjectCallback {
     }
 
     override fun onProjectClicked(project: Project) {
-        //implement this
+        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(project.githubLink))
+        startActivity(browserIntent)
     }
 
 }

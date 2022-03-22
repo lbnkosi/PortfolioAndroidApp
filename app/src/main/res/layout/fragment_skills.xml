@@ -33,7 +33,7 @@
         <ImageView
             android:id="@+id/buttonBgImageView"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="50dp"
             android:scaleType="centerCrop"
             app:layout_constraintTop_toBottomOf="@id/chipGroup"
             android:layout_marginTop="@dimen/marginPadding_16"
@@ -41,14 +41,14 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:alpha="0.7"
+            android:layout_height="50dp"
+            android:alpha="0.5"
             app:layout_constraintTop_toTopOf="@id/buttonBgImageView"
             android:background="@color/black"/>
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="50dp"
             style="@style/Caption"
             android:gravity="center"
             android:textColor="@color/white"

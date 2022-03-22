@@ -18,8 +18,8 @@ class FeaturedAdapter(private val callback: ViewProjectCallback) : DataBoundList
     }
 
     override fun bind(binding: FeaturedLayoutBinding, item: Project) {
-        Glide.with(binding.featuredImageView.context).load(item.image).error(R.drawable.android_logo).into(binding.featuredImageView)
-        binding.featuredImageView.setOnClickListener { callback.onProjectClicked(item) }
+        Glide.with(binding.root.context).load(item.image).into(binding.projectImageView)
+        binding.projectImageView.setOnClickListener { callback.onProjectClicked(item) }
         binding.featuredCaptionTextView.text = item.description
         binding.featuredTitleTextView.text = item.name
     }
