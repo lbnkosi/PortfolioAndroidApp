@@ -30,32 +30,12 @@
             android:layout_marginTop="@dimen/marginPadding_16"
             app:layout_constraintTop_toBottomOf="@id/sectionTitleTextView" />
 
-        <ImageView
-            android:id="@+id/buttonBgImageView"
+        <include
+            android:id="@+id/includeButton"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:scaleType="centerCrop"
-            app:layout_constraintTop_toBottomOf="@id/chipGroup"
+            android:layout_height="wrap_content"
+            layout="@layout/gradient_button"
             android:layout_marginTop="@dimen/marginPadding_16"
-            android:src="@drawable/button_bg"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:alpha="0.5"
-            app:layout_constraintTop_toTopOf="@id/buttonBgImageView"
-            android:background="@color/black"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            style="@style/Caption"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:padding="@dimen/marginPadding_16"
-            android:layout_marginTop="@dimen/marginPadding_16"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:text="See More Skills"
             app:layout_constraintTop_toBottomOf="@id/chipGroup"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

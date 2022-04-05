@@ -1,14 +1,10 @@
 package za.co.lbnkosi.portfolio.ui.features.chat.user
 
-import android.content.ContentValues.TAG
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
@@ -26,12 +22,13 @@ import za.co.lbnkosi.portfolio.domain.usecase.PortfolioUseCase
 import za.co.lbnkosi.portfolio.ui.baseobservables.AuthBaseObservable
 import za.co.lbnkosi.portfolio.ui.baseobservables.ChatBaseObservable
 import za.co.lbnkosi.portfolio.domain.enums.ResourceStatus
+import za.co.lbnkosi.portfolio.ui.base.BaseViewModel
 import java.util.*
 import javax.inject.Inject
 import kotlin.collections.ArrayList
 
 @HiltViewModel
-class ChatViewModel @Inject constructor(private val useCase: FirebaseUseCase, private val portfolioUseCase: PortfolioUseCase) : ViewModel() {
+class ChatViewModel @Inject constructor(private val useCase: FirebaseUseCase, private val portfolioUseCase: PortfolioUseCase) : BaseViewModel() {
 
     private var uid: String? = ""
 
@@ -53,9 +50,6 @@ class ChatViewModel @Inject constructor(private val useCase: FirebaseUseCase, pr
     val signIn: LiveData<AuthResult?>
         get() = _signIn
 
-    val signUp: LiveData<AuthResult?>
-        get() = _signUp
-
     val sendMessage: LiveData<Boolean?>
         get() = _sendMessage
 
@@ -72,8 +66,6 @@ class ChatViewModel @Inject constructor(private val useCase: FirebaseUseCase, pr
 
     private var _signIn: MutableLiveData<AuthResult?> = MutableLiveData()
 
-    private var _signUp: MutableLiveData<AuthResult?> = MutableLiveData()
-
     private var _sendMessage: MutableLiveData<Boolean?> = MutableLiveData()
 
     private var _messages: MutableLiveData<ArrayList<ChatModel>> = MutableLiveData()
@@ -85,19 +77,23 @@ class ChatViewModel @Inject constructor(private val useCase: FirebaseUseCase, pr
 
     private var _portfolio: MutableLiveData<Portfolio?> = MutableLiveData(Portfolio())
 
-    private fun signedIn() {
+    private fun setSignedIn() {
         _signedIn.value = true
     }
+
+    fun isSignedIn() = auth?.currentUser != null
+
+    fun getSignedInUser() = auth?.currentUser
 
     fun signUp() {
         if (authBaseObservable.isSignUpRequestValid()) {
             viewModelScope.launch {
                 useCase.signUp(AuthModel(name = authBaseObservable.name, email = authBaseObservable.email, password = authBaseObservable.password)).collect {
                     if (it.resourceStatus == ResourceStatus.SUCCESS && it.data?.user != null) {
-                        _signUp.value = it.data
-                        signedIn()
+                        _signIn.value = it.data
+                        setSignedIn()
                     } else {
-                        _signUp.value = null
+                        _signIn.value = null
                     }
                 }
             }
@@ -110,7 +106,7 @@ class ChatViewModel @Inject constructor(private val useCase: FirebaseUseCase, pr
                 useCase.signIn(AuthModel(email = authBaseObservable.email, password = authBaseObservable.password)).collect {
                     if (it.resourceStatus == ResourceStatus.SUCCESS && it.data?.user != null) {
                         _signIn.value = it.data
-                        signedIn()
+                        setSignedIn()
                     } else {
                         _signIn.value = null
                     }
@@ -146,13 +142,7 @@ class ChatViewModel @Inject constructor(private val useCase: FirebaseUseCase, pr
         }
     }
 
-    fun isSignedIn(): Boolean {
-        return auth?.currentUser != null
-    }
 
-    fun getSignedInUser(): FirebaseUser? {
-        return auth?.currentUser
-    }
 
     //Only send a UID if the admin is logged in. Else always leave it null or empty
     fun fetchMessages(uid: String? = null) {
@@ -171,14 +161,11 @@ class ChatViewModel @Inject constructor(private val useCase: FirebaseUseCase, pr
         auth?.currentUser?.let { user ->
             db.collection("chat").document(if (!uid.isNullOrEmpty()) uid else user.uid).collection("conversations").orderBy("date", Query.Direction.ASCENDING).addSnapshotListener { snapshot, e ->
                 if (e != null) {
-                    Log.w(TAG, "Listen failed.", e)
                     return@addSnapshotListener
                 }
 
                 val messages = ArrayList<ChatModel>()
-                snapshot?.forEach { doc ->
-                    messages.add(doc.toObject())
-                }
+                snapshot?.forEach { doc -> messages.add(doc.toObject()) }
                 _messages.value = messages
             }
         }
@@ -186,7 +173,7 @@ class ChatViewModel @Inject constructor(private val useCase: FirebaseUseCase, pr
 
     fun fetchPortfolioFromCache() {
         viewModelScope.launch {
-            portfolioUseCase.getPortfolioFromCache().collect {
+            portfolioUseCase.getPortfolioFromCache(this@ChatViewModel).collect {
                 if (it.resourceStatus == ResourceStatus.SUCCESS) {
                     _portfolio.value = it.data
                 }
@@ -197,15 +184,13 @@ class ChatViewModel @Inject constructor(private val useCase: FirebaseUseCase, pr
     fun fetchChatUsers() {
         viewModelScope.launch {
             useCase.getAllChatUsers().collect {
-                if (it.resourceStatus == ResourceStatus.SUCCESS) {
-                    _chatUsers.value = it.data
-                }
+                if (it.resourceStatus == ResourceStatus.SUCCESS) _chatUsers.value = it.data
             }
         }
     }
 
     fun deleteAccount() {
-
+        //TODO Implement Delete Feature
     }
 
     fun signOut() {

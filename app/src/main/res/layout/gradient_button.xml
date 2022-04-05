@@ -1,0 +1,39 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/buttonParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/buttonBgImageView"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/button_bg"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="gradientBg" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:alpha="0.5"
+            android:background="@color/black"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/caption"
+            style="@style/Caption"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:padding="@dimen/marginPadding_16"
+            tools:text="Custom Button"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.tasks.await
 import retrofit2.await
 import retrofit2.awaitResponse
+import za.co.lbnkosi.portfolio.data.network.Constants.CHAT_COLLECTION_PATH
 import za.co.lbnkosi.portfolio.data.network.Constants.FIRE_UID
 import za.co.lbnkosi.portfolio.data.service.FCMService
 import za.co.lbnkosi.portfolio.data.source.remote.firebase.Extensions.path
@@ -34,36 +35,26 @@ class FirebaseDataSource @Inject constructor(private val fcmService: FCMService)
         if (result.user != null) {
             result.user?.let {
                 db.path(it.uid).set(hashMapOf("name" to authModel.name, "uid" to it.uid, "email" to authModel.email)).await()
-                db.path(it.uid).collection("conversations").document(FIRE_UID).set(ChatModel(message = "Welcome. Send me a message and I'll try my best to respond", date = Date(), uid = FIRE_UID)).await()
+                db.path(it.uid).collection(CHAT_COLLECTION_PATH).document(FIRE_UID).set(ChatModel(message = "Welcome. Send me a message and I'll try my best to respond", date = Date(), uid = FIRE_UID)).await()
             }
         }
 
-        return if (result.user != null) {
-            flow { emit(Resource.success(result)) }
-        } else {
-            flow { emit(Resource.error(Pair("", null), null)) }
-        }
+        return flow { if (result.user != null) emit(Resource.success(result)) else emit(Resource.error(Pair("", null), null)) }
     }
 
     suspend fun signIn(authModel: AuthModel): Flow<Resource<AuthResult>> {
         auth = Firebase.auth
         val result = auth.signInWithEmailAndPassword(authModel.email, authModel.password).await()
-        return if (result.user != null) {
-            flow { emit(Resource.success(result)) }
-        } else {
-            flow { emit(Resource.error(Pair("", null), null)) }
-        }
+        return flow { if (result.user != null) emit(Resource.success(result)) else emit(Resource.error(Pair("", null), null)) }
     }
 
     suspend fun fetchMessages(uid: String? = null): Flow<Resource<ArrayList<ChatModel>>> {
         auth = Firebase.auth
         if (auth.currentUser != null) {
             auth.currentUser?.let {
-                val result = db.path(if (!uid.isNullOrEmpty()) uid else it.uid).collection("conversations").orderBy("date", Query.Direction.ASCENDING).get(Source.DEFAULT).await()
+                val result = db.path(if (!uid.isNullOrEmpty()) uid else it.uid).collection(CHAT_COLLECTION_PATH).orderBy("date", Query.Direction.ASCENDING).get(Source.DEFAULT).await()
                 val messages = ArrayList<ChatModel>()
-                result?.forEach { doc ->
-                    messages.add(doc.toObject())
-                }
+                result?.forEach { doc -> messages.add(doc.toObject()) }
                 return flow { emit(Resource.success(messages)) }
             }
             return flow { Resource.error(Pair("", null), null) }
@@ -75,7 +66,7 @@ class FirebaseDataSource @Inject constructor(private val fcmService: FCMService)
     suspend fun sendMessage(chatModel: ChatModel, uid: String, notificationAddress: String): Flow<Resource<Boolean>> {
         auth = Firebase.auth
         auth.currentUser?.let {
-            db.path(uid).collection("conversations").document().set(chatModel).await()
+            db.path(uid).collection(CHAT_COLLECTION_PATH).document().set(chatModel).await()
             sendNotification(
                 Notification(
                     to = "/topics/$notificationAddress",

@@ -83,9 +83,6 @@
             android:id="@+id/messageInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/marginPadding_32"
-            android:layout_marginEnd="80dp"
-            android:layout_marginBottom="@dimen/marginPadding_16"
             app:boxStrokeWidth="0dp"
             app:boxStrokeWidthFocused="0dp"
             app:layout_constraintBottom_toBottomOf="parent">
@@ -94,22 +91,23 @@
                 style="@style/SectionTitle.Subtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/chat_bg"
+                android:paddingStart="@dimen/marginPadding_32"
+                android:background="?attr/colorOnPrimary"
                 android:hint="Write a message"
+                android:paddingEnd="80dp"
                 android:text="@={viewModel.chatBaseObservable.message}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/sendImageView"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginStart="@dimen/marginPadding_16"
             android:layout_marginEnd="@dimen/marginPadding_32"
             android:src="@drawable/send_img"
             app:layout_constraintBottom_toBottomOf="@id/messageInputLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/messageInputLayout"
             app:layout_constraintTop_toTopOf="@id/messageInputLayout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

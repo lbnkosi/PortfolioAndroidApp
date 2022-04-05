@@ -24,6 +24,7 @@ class EducationFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.includeButton.caption.text = "See More"
         viewModel.portfolio.observe(viewLifecycleOwner) {
             it?.educationList?.let { education ->
                 configureEducationRecyclerView(education)

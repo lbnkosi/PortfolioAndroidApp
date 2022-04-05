@@ -1,9 +1,11 @@
 package za.co.lbnkosi.portfolio.ui.features.home
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.messaging.FirebaseMessaging
 import dagger.hilt.android.AndroidEntryPoint
 import za.co.lbnkosi.portfolio.R
@@ -26,12 +28,21 @@ class HomeActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
         configureBottomNavigation()
         subscribeToFirebaseTopic()
+        configureObservables()
     }
 
     override fun onResume() {
         super.onResume()
         if (intent.getStringExtra(MyFirebaseMessagingService.CHAT_NOTIFICATION_EXTRA_NAME) == MyFirebaseMessagingService.CHAT_NOTIFICATION_EXTRA_VALUE) {
             binding.bottomNavigationView.selectedItemId = R.id.chat
+        }
+    }
+
+    private fun configureObservables() {
+        viewModel.mutableErrorType.observe(this) {
+            if(it != null) {
+                Snackbar.make(binding.root, it.first.toString(), Snackbar.LENGTH_LONG).show()
+            }
         }
     }
 

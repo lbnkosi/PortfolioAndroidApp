@@ -1,13 +1,18 @@
 package za.co.lbnkosi.portfolio.ui.features.home
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import dagger.hilt.android.AndroidEntryPoint
 import za.co.lbnkosi.portfolio.R
 import za.co.lbnkosi.portfolio.databinding.FragmentHomeBinding
+import za.co.lbnkosi.portfolio.domain.enums.ScreenState
 import za.co.lbnkosi.portfolio.domain.model.Portfolio
 import za.co.lbnkosi.portfolio.ui.base.BaseFragment
 
@@ -44,6 +49,7 @@ class HomeFragment : BaseFragment() {
             it?.let { portfolio ->
                 setupHeaderTextViews(portfolio)
                 configureSeeMoreTextView(portfolio)
+                openResume(portfolio.user.resume)
             }
         }
         viewModel.fetchPortfolio()
@@ -73,6 +79,13 @@ class HomeFragment : BaseFragment() {
                 aboutTextView.maxLines = if (!seeMore) MAX_LINES_MAX else MAX_LINES_MIN
                 seeMore = !seeMore
             }
+        }
+    }
+
+    private fun openResume(link: String) {
+        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
+        binding.headerInclude.downloadResumeTextView.setOnClickListener {
+            startActivity(browserIntent)
         }
     }
 
