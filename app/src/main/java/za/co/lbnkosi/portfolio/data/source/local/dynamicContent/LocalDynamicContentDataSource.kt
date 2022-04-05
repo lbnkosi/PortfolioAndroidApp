@@ -4,13 +4,14 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import za.co.lbnkosi.portfolio.data.db.DynamicContentDao
 import za.co.lbnkosi.portfolio.data.entity.DynamicContentEntity
+import za.co.lbnkosi.portfolio.data.network.RemoteErrorEmitter
 import za.co.lbnkosi.portfolio.domain.model.DynamicContent
 import za.co.lbnkosi.portfolio.domain.model.Resource
 import javax.inject.Inject
 
 class LocalDynamicContentDataSource @Inject constructor(private val dynamicContentDao: DynamicContentDao) {
 
-    suspend fun fetchDynamicContentFromCache(): Flow<Resource<DynamicContent>> {
+    suspend fun fetchDynamicContentFromCache(remoteErrorEmitter: RemoteErrorEmitter): Flow<Resource<DynamicContent>> {
         if (isCacheAvailable()) {
             return flow { emit(Resource.success(fetchCache().dynamicContent, true)) }
         }

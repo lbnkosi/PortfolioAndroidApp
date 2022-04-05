@@ -4,6 +4,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import za.co.lbnkosi.portfolio.data.db.PortfolioDao
 import za.co.lbnkosi.portfolio.data.entity.PortfolioEntity
+import za.co.lbnkosi.portfolio.data.network.RemoteErrorEmitter
 import za.co.lbnkosi.portfolio.domain.model.Portfolio
 import za.co.lbnkosi.portfolio.domain.model.Resource
 import javax.inject.Inject

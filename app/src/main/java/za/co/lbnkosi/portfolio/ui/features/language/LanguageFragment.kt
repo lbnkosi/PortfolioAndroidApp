@@ -33,6 +33,7 @@ class LanguageFragment : BaseFragment() {
     }
 
     private fun configureLanguagesChipGroup(languages: ArrayList<Language>) {
+        binding.chipGroup.removeAllViews()
         languages.forEach {
             binding.chipGroup.addView(ChipLayoutBinding.inflate(layoutInflater).apply { this.chip.text = it.name }.root)
         }

@@ -26,6 +26,7 @@ class SkillsFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.includeButton.caption.text = "See More Skills"
         viewModel.portfolio.observe(viewLifecycleOwner) {
             it?.skillsList?.let { skills ->
                 configureSkillsChipGroup(skills)
@@ -34,6 +35,7 @@ class SkillsFragment : BaseFragment() {
     }
 
     private fun configureSkillsChipGroup(skills: ArrayList<Skill>) {
+        binding.chipGroup.removeAllViews()
         skills.forEach {
             binding.chipGroup.addView(ChipLayoutBinding.inflate(layoutInflater).apply { this.chip.text = it.name }.root)
         }

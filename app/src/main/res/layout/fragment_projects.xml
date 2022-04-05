@@ -16,10 +16,20 @@
             android:layout_marginTop="@dimen/marginPadding_16"
             android:text="Projects"
             android:textColor="?attr/colorOnSecondary"
-            app:layout_constraintBottom_toTopOf="@id/projectsRecyclerView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_goneMarginBottom="@dimen/marginPadding_16" />
+
+        <View
+            android:id="@+id/gradientView"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:alpha="0.7"
+            android:background="@drawable/button_bg"
+            android:layout_marginTop="@dimen/marginPadding_16"
+            app:layout_constraintTop_toBottomOf="@id/sectionTitleTextView"
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/projectsRecyclerView"
@@ -28,8 +38,7 @@
             android:layout_marginBottom="@dimen/marginPadding_16"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sectionTitleTextView"
+            app:layout_constraintTop_toBottomOf="@id/gradientView"
             tools:listitem="@layout/projects_layout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

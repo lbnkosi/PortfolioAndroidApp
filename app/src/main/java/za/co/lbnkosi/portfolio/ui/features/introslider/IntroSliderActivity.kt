@@ -15,12 +15,24 @@ import za.co.lbnkosi.portfolio.ui.features.home.HomeActivity
 @AndroidEntryPoint
 class IntroSliderActivity : BaseActivity() {
 
+    companion object {
+        const val HAS_SEEN_INTRO = "has_seen_intro"
+    }
+
     private lateinit var binding: ActivityIntroSliderBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        hasSeenIntro()
         binding = DataBindingUtil.setContentView(this, R.layout.activity_intro_slider)
         setupViewPager()
+    }
+
+    private fun hasSeenIntro() {
+        if (sharedPrefs().getSharedPreferenceBoolean(this, HAS_SEEN_INTRO, false)) {
+            startActivity(Intent(this, HomeActivity::class.java))
+            finish()
+        }
     }
 
     private fun setupViewPager() {
@@ -53,6 +65,7 @@ class IntroSliderActivity : BaseActivity() {
             navigation.backButton.setOnClickListener { viewPager.currentItem = backPosition }
             navigation.nextButton.setOnClickListener { viewPager.currentItem = nextPosition }
             if (nextPosition == 3) navigation.nextButton.setOnClickListener {
+                sharedPrefs().setSharedPreferenceBoolean(this@IntroSliderActivity, HAS_SEEN_INTRO, true)
                 startActivity(Intent(this@IntroSliderActivity, HomeActivity::class.java))
             }
         }

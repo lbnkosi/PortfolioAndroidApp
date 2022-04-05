@@ -14,5 +14,5 @@ class PortfolioEntity(
 
     @ColumnInfo(name = "portfolio")
     @TypeConverters(PortfolioTypeConverter::class)
-    var portfolio: Portfolio = Portfolio()
+    var portfolio: Portfolio? = Portfolio()
 )

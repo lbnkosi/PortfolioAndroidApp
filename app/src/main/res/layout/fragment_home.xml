@@ -34,7 +34,7 @@
                         android:name="za.co.lbnkosi.portfolio.ui.features.language.LanguageFragment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/marginPadding_16"
+                        android:layout_margin="@dimen/marginPadding_16"
                         app:layout_constraintTop_toBottomOf="@id/headerInclude"
                         tools:layout="@layout/fragment_languages" />
 

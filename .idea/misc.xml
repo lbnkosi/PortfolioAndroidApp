@@ -49,8 +49,8 @@
         <entry key="app/src/main/res/layout/fragment_about.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_auth.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/fragment_chat_thread.xml" value="0.49583333333333335" />
-        <entry key="app/src/main/res/layout/fragment_education.xml" value="0.49583333333333335" />
+        <entry key="app/src/main/res/layout/fragment_chat_thread.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/fragment_education.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_featured.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.29768605378361473" />
         <entry key="app/src/main/res/layout/fragment_languages.xml" value="0.49583333333333335" />
@@ -60,6 +60,7 @@
         <entry key="app/src/main/res/layout/fragment_skills.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_work.xml" value="0.335" />
         <entry key="app/src/main/res/layout/full_screen_loading_indicator.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/gradient_button.xml" value="0.49583333333333335" />
         <entry key="app/src/main/res/layout/intro_slider_header.xml" value="0.49583333333333335" />
         <entry key="app/src/main/res/layout/intro_slider_navigation.xml" value="0.335" />
         <entry key="app/src/main/res/layout/intro_slider_one_fragment.xml" value="0.375" />

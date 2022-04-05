@@ -1,5 +1,6 @@
 package za.co.lbnkosi.portfolio.ui.base
 
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import dagger.hilt.android.AndroidEntryPoint
 import za.co.lbnkosi.portfolio.util.dialogs.LoadingDialog
@@ -24,5 +25,7 @@ abstract class BaseFragment : Fragment() {
     fun dismissLoadingDialog() {
         loadingDialog?.dismiss()
     }
+
+
 
 }

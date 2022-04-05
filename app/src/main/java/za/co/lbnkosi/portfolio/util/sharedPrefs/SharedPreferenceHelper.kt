@@ -6,7 +6,7 @@ import android.content.SharedPreferences
 class SharedPreferenceHelper {
 
     companion object {
-        private const val PREF_FILE = ""
+        private const val PREF_FILE = "APP_PREFS"
     }
 
     /**

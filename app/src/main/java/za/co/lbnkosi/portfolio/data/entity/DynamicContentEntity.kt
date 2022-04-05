@@ -14,6 +14,6 @@ class DynamicContentEntity(
 
     @ColumnInfo(name = "dynamicContent")
     @TypeConverters(DynamicContentTypeConverter::class)
-    var dynamicContent: DynamicContent = DynamicContent()
+    var dynamicContent: DynamicContent? = DynamicContent()
 
 )
